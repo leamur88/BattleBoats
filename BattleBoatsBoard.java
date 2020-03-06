@@ -55,9 +55,9 @@ public class BattleBoatsBoard {
                     }
 
                     if (horizontal && left){ //Horizontal and left
-                        if ((x+1) - boatSizes[i].getLength()) >= 0){//Checks if boat can fit on board
+                        if (((x+1) - boatSizes[i].getLength()) >= 0){//Checks if boat can fit on board
 
-                          for (int k=0; j<boatSizes[i].getLength(); j++){
+                          for (int k=0; k<boatSizes[i].getLength(); k++){
                             if (board[y][x-k] instanceof Boats){ //check if different boat is in the way
                               break;
                             }
@@ -70,9 +70,9 @@ public class BattleBoatsBoard {
                     }
 
                     else if (horizontal && !left){  //Horizontal and right
-                      if ((x + boatSizes[i].getLength() <= 8){
+                      if (x + boatSizes[i].getLength() <= 8){
 
-                        for (int k=0; j<boatSizes[i].getLength(); j++){
+                        for (int k=0; k<boatSizes[i].getLength(); k++){
                           if (board[y][x+k] instanceof Boats){ //check if different boat is in the way
                             break;
                           }
@@ -86,9 +86,9 @@ public class BattleBoatsBoard {
                     }
 
                     else if (!horizontal && left){  //Vertical and up
-                      if (((y+1) - boatSizes[i].getLength() >= 0){
+                      if ((y+1) - boatSizes[i].getLength() >= 0){
 
-                          for (int k=0; j<boatSizes[i].getLength(); j++){
+                          for (int k=0; k<boatSizes[i].getLength(); k++){
                             if (board[y-k][x] instanceof Boats){
                               break;
                             }
@@ -102,9 +102,9 @@ public class BattleBoatsBoard {
                     }
 
                     else if (!horizontal && !left){  //Vertical and down
-                      if ((y + boatSizes[i].getLength() <= 8){
+                      if (y + boatSizes[i].getLength() <= 8){
 
-                          for (int k=0; j<boatSizes[i].getLength(); j++){
+                          for (int k=0; k<boatSizes[i].getLength(); k++){
                             if (board[y+k][x] instanceof Boats){
                               break;
                             }
