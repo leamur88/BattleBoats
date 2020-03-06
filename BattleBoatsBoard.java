@@ -96,7 +96,7 @@ public class BattleBoatsBoard {
 										}
 
 										else if (horizontal && !left){  //Horizontal and right
-											if (x + boatSizes[i].getLength() <= 12){
+											if (x + boatSizes[i].getLength() <= 8){
 
 												for (int k=0; k<boatSizes[i].getLength(); k++){
 													if (board[y][x+k] instanceof Boats){ //check if different boat is in the way
@@ -134,7 +134,7 @@ public class BattleBoatsBoard {
 										}
 
 										else if (!horizontal && !left){  //Vertical and down
-											if (y + boatSizes[i].getLength() <= 12){
+											if (y + boatSizes[i].getLength() <= 8){
 
 													for (int k=0; k<boatSizes[i].getLength(); k++){
 														if (board[y+k][x] instanceof Boats){
