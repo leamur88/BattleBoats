@@ -144,7 +144,7 @@ public class BattleBoatsBoard {
                     iterations ++;
 
                 }
-                System.out.println(iterations);
+                //System.out.println(iterations);
 
             }
         }
