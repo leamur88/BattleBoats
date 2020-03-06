@@ -4,18 +4,71 @@ Written by osmun046 and leibo023
  */
 
 public class BattleBoatsBoard {
-    char[][] board;
+    Boats[][] board;
     int totalShots = 0;
     int turns = 0;
     int shipsRemaining;
 
-    public BattleBoatsBoard(int size) { //Constructor. Makes a square board of int size
+    public BattleBoatsBoard(String gamemode) { //Constructor. Makes a square board of int size
+        if (gamemode.equals("standard")){
+            board = new Boats[8][8];
+        }
 
-        board = new char[size][size];
+        else if (gamemode.equals("expert")){
+            board = new Boats[12][12];
+        }
+
+        else {
+            System.out.println("Choose either standard or expert.");
+        }
     }
 
-    public void placeBoats() {  //Randomly places boats on board
 
+    public void placeBoats(String gamemode) {  //Randomly places boats on board
+        if (gamemode.equals("standard")){
+            int[] boatSizes = {5, 4, 3, 3, 2};
+            
+
+            for (int i =0; i < boatSizes.length; i++) {
+                boolean fits = false;
+                
+                while (fits == false){
+                    int x = (int)Math.floor(Math.random() * 8.0);
+                    int y = (int)Math.floor(Math.random() * 8.0); 
+
+                    boolean horizontal = true;
+                    if (Math.random() < 0.5) {
+                        horizontal = false;
+                    }
+
+                    boolean left = true;
+                    if (Math.random() < 0.5) {
+                        left = false;
+                    }
+
+                    if (horizontal && left){ //Horizontal and left
+                        if (x - (boatSizes[i]-1) >= 0){
+                            fits = true;
+                            
+
+                        }
+                    }
+
+                    else if (horizontal && !left){  //Horizontal and right
+
+                    }
+
+                    else if (!horizontal && left){  //Vertical and left
+
+                    }
+
+                    else if (!horizontal && !left){  //Vertical and right
+
+                    }
+                }
+                 
+            }
+        }
     }
 
     public void fire(int x, int y) {  //Fires at coordinate (x,y)

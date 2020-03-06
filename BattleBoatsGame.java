@@ -7,6 +7,6 @@ Written by osmun046 and leibo023
 public class BattleBoatsGame {
 
     public static void main(String[] args) {
-
+        
     }
 }
