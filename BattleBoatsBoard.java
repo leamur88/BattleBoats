@@ -93,7 +93,7 @@ public class BattleBoatsBoard {
                             for (int j=0; j<boatSizes[i].getLength(); j++){
                               board[y][x-j]=boatSizes[i];
                             }
-                            } 
+                            }
                         }
                     }
 

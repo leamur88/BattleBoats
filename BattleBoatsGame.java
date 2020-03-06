@@ -7,7 +7,7 @@ Written by osmun046 and leibo023
 public class BattleBoatsGame {
 
     public static void main(String[] args) {
-      BattleBoatsBoard thisboard = new BattleBoatsBoard("standard");
+      BattleBoatsBoard thisboard = new BattleBoatsBoard("expert");
       thisboard.placeBoats();
       System.out.println(thisboard);
     }
