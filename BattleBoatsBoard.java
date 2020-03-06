@@ -40,6 +40,7 @@ public class BattleBoatsBoard {
                 boolean fits = false;
 
                 while (fits == false){
+                    int iterations = 0;
                     int x = (int)Math.floor(Math.random() * 8.0);
                     int y = (int)Math.floor(Math.random() * 8.0);
 
@@ -88,7 +89,7 @@ public class BattleBoatsBoard {
                       if (((y+1) - boatSizes[i].getLength() >= 0){
 
                           for (int k=0; j<boatSizes[i].getLength(); j++){
-                            if (board[y-k][x] instanceof Boats){ //check if different boat is in the way
+                            if (board[y-k][x] instanceof Boats){
                               break;
                             }
                           }
@@ -115,6 +116,8 @@ public class BattleBoatsBoard {
                           }
                       }
                     }
+                    iterations ++;
+
                 }
 
             }
