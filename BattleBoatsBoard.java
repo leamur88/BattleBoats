@@ -23,6 +23,17 @@ public class BattleBoatsBoard {
         }
     }
 
+    public String toString(){
+        String boardResult = "";
+
+        for (int i = 0; i < board.length; i++){
+            for (int j = 0; j < board.length; j++){
+                boardResult += board[i][j];  //Issue??
+            }
+        }
+        return boardResult;
+    }
+
 
     public void placeBoats(String gamemode) {  //Randomly places boats on board
         if (gamemode.equals("standard")){
@@ -125,7 +136,7 @@ public class BattleBoatsBoard {
     }
 
     public void fire(int x, int y) {  //Fires at coordinate (x,y)
-
+        //Must update userBoard location hit with miss or 
     }
 
     public void display() {  //Displays current board state. Void because it will use println()
