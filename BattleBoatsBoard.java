@@ -54,27 +54,66 @@ public class BattleBoatsBoard {
                     }
 
                     if (horizontal && left){ //Horizontal and left
-                        if (x - (boatSizes[i]-1) >= 0){
-                            fits = true;
-                            name = (String) i;
-                            for (int j=0; j<boatSizes[i]; j++){
+                        if ((x+1) - boatSizes[i].getLength()) >= 0){//Checks if boat can fit on board
 
-                              Boats  =
-                              board[y][x-j]=boats()
+                          for (int k=0; j<boatSizes[i].getLength(); j++){
+                            if (board[y][x-k] instanceof Boats){ //check if different boat is in the way
+                              break;
+                            }
+                          }
+                            fits = true;
+                            for (int j=0; j<boatSizes[i].getLength(); j++){
+                              board[y][x-j]=boatSizes[i];
                             }
                         }
                     }
 
                     else if (horizontal && !left){  //Horizontal and right
+                      if ((x + boatSizes[i].getLength() <= 8){
 
+                        for (int k=0; j<boatSizes[i].getLength(); j++){
+                          if (board[y][x+k] instanceof Boats){ //check if different boat is in the way
+                            break;
+                          }
+                        }
+
+                          fits = true;
+                          for (int j=0; j<boatSizes[i].getLength(); j++){
+                            board[y][x+j]=boatSizes[i];
+                          }
+                      }
                     }
 
-                    else if (!horizontal && left){  //Vertical and left
+                    else if (!horizontal && left){  //Vertical and up
+                      if (((y+1) - boatSizes[i].getLength() >= 0){
 
+                          for (int k=0; j<boatSizes[i].getLength(); j++){
+                            if (board[y-k][x] instanceof Boats){ //check if different boat is in the way
+                              break;
+                            }
+                          }
+
+                          fits = true;
+                          for (int j=0; j<boatSizes[i].getLength(); j++){
+                            board[y-j][x]=boatSizes[i];
+                          }
+                      }
                     }
 
-                    else if (!horizontal && !left){  //Vertical and right
+                    else if (!horizontal && !left){  //Vertical and down
+                      if ((y + boatSizes[i].getLength() <= 8){
 
+                          for (int k=0; j<boatSizes[i].getLength(); j++){
+                            if (board[y+k][x] instanceof Boats){
+                              break;
+                            }
+                          }
+
+                          fits = true;
+                          for (int j=0; j<boatSizes[i].getLength(); j++){
+                            board[y+j][x]=boatSizes[i];
+                          }
+                      }
                     }
                 }
 
