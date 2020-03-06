@@ -4,37 +4,37 @@ Written by osmun046 and leibo023
 */
 
 public class Boats{
-    private int length;
-    private int health;
-    private String name;
+	private int length;
+	private int health;
+	private String name;
 
-    static Boats hitBoat = new Boats(-1,"hitBoat");
-    static Boats missSpot = new Boats(-2,"missSpot");
+	static Boats hitBoat = new Boats(-1,"hitBoat");
+	static Boats missSpot = new Boats(-2,"missSpot");
 
-    public Boats(int length, String name) {
-        this.health = length;
-        this.length = length;
-        this.name = name;
-    }
+	public Boats(int length, String name) {
+		this.health = length;
+		this.length = length;
+		this.name = name;
+	}
 
-    public int getLength(){
-      return this.length;
-    }
+	public int getLength(){
+	return this.length;
+	}
 
-    public void loseHealth(){
-      this.health --;
-    }
+	public void loseHealth(){
+	this.health --;
+	}
 
-    public String toString(){
-        String result = "";
-        
-        if (this.health > 0) {
-            result += "["+this.length+this.name+"] ";
-        }
+	public String toString(){
+		String result = "";
+		
+		if (this.health > 0) {
+			result += "["+this.length+this.name+"] ";
+		}
 
-        else if (this.health < 0) {
-            result = "X";
-        }
-    return result;
-    }
+		else if (this.health < 0) {
+			result = "X";
+		}
+	return result;
+	}
 }
