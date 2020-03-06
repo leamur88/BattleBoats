@@ -79,6 +79,7 @@ public class BattleBoatsBoard {
                         if (((x+1) - boatSizes[i].getLength()) >= 0){//Checks if boat can fit on board
 
                           for (int k=0; k<boatSizes[i].getLength(); k++){
+                            System.out.println(board[y][x-k]);
                             if (board[y][x-k] instanceof Boats){ //check if different boat is in the way
                               break;
                             }
@@ -94,6 +95,7 @@ public class BattleBoatsBoard {
                       if (x + boatSizes[i].getLength() <= 8){
 
                         for (int k=0; k<boatSizes[i].getLength(); k++){
+                            System.out.println(board[y][x+k]);
                           if (board[y][x+k] instanceof Boats){ //check if different boat is in the way
                             break;
                           }
@@ -110,6 +112,7 @@ public class BattleBoatsBoard {
                       if ((y+1) - boatSizes[i].getLength() >= 0){
 
                           for (int k=0; k<boatSizes[i].getLength(); k++){
+                              System.out.println(board[y-k][x]);
                             if (board[y-k][x] instanceof Boats){
                               break;
                             }
@@ -126,6 +129,7 @@ public class BattleBoatsBoard {
                       if (y + boatSizes[i].getLength() <= 8){
 
                           for (int k=0; k<boatSizes[i].getLength(); k++){
+                              System.out.println(board[y+k][x]);
                             if (board[y+k][x] instanceof Boats){
                               break;
                             }
