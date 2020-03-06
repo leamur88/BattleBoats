@@ -26,15 +26,22 @@ public class BattleBoatsBoard {
 
     public void placeBoats(String gamemode) {  //Randomly places boats on board
         if (gamemode.equals("standard")){
-            int[] boatSizes = {5, 4, 3, 3, 2};
-            
+            Boats boat5 = new Boats(5);
+            Boats boat4 = new Boats(4);
+            Boats boat31 = new Boats(3);
+            Boats boat32 = new Boats(3);
+            Boats boat2 = new Boats(2);
+
+
+            Boats[] boatSizes = {boat5, boat4, boat31, boat32, boat2};
+
 
             for (int i =0; i < boatSizes.length; i++) {
                 boolean fits = false;
-                
+
                 while (fits == false){
                     int x = (int)Math.floor(Math.random() * 8.0);
-                    int y = (int)Math.floor(Math.random() * 8.0); 
+                    int y = (int)Math.floor(Math.random() * 8.0);
 
                     boolean horizontal = true;
                     if (Math.random() < 0.5) {
@@ -49,8 +56,12 @@ public class BattleBoatsBoard {
                     if (horizontal && left){ //Horizontal and left
                         if (x - (boatSizes[i]-1) >= 0){
                             fits = true;
-                            
+                            name = (String) i;
+                            for (int j=0; j<boatSizes[i]; j++){
 
+                              Boats  =
+                              board[y][x-j]=boats()
+                            }
                         }
                     }
 
@@ -66,7 +77,7 @@ public class BattleBoatsBoard {
 
                     }
                 }
-                 
+
             }
         }
     }
