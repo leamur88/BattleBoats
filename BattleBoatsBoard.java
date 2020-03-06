@@ -8,10 +8,13 @@ public class BattleBoatsBoard {
     int totalShots = 0;
     int turns = 0;
     int shipsRemaining;
+    String gamemode;
 
     public BattleBoatsBoard(String gamemode) { //Constructor. Makes a square board of int size
+        this.gamemode = gamemode;
         if (gamemode.equals("standard")){
             board = new Boats[8][8];
+
         }
 
         else if (gamemode.equals("expert")){
@@ -27,16 +30,23 @@ public class BattleBoatsBoard {
         String boardResult = "";
 
         for (int i = 0; i < board.length; i++){
+            boardResult+= "\n";
             for (int j = 0; j < board.length; j++){
-                boardResult += board[i][j];  //Issue??
+                if (!(board[i][j] instanceof Boats)){
+                  boardResult += "0";
+                }
+                else{
+                 boardResult += board[i][j];
+                }
+
             }
         }
         return boardResult;
     }
 
 
-    public void placeBoats(String gamemode) {  //Randomly places boats on board
-        if (gamemode.equals("standard")){
+    public void placeBoats() {  //Randomly places boats on board
+        if (this.gamemode.equals("standard")){
             Boats boat5 = new Boats(5);
             Boats boat4 = new Boats(4);
             Boats boat31 = new Boats(3);
@@ -49,9 +59,9 @@ public class BattleBoatsBoard {
 
             for (int i =0; i < boatSizes.length; i++) {
                 boolean fits = false;
+                int iterations = 0;
 
                 while (fits == false){
-                    int iterations = 0;
                     int x = (int)Math.floor(Math.random() * 8.0);
                     int y = (int)Math.floor(Math.random() * 8.0);
 
@@ -130,13 +140,14 @@ public class BattleBoatsBoard {
                     iterations ++;
 
                 }
+                System.out.println(iterations);
 
             }
         }
     }
 
     public void fire(int x, int y) {  //Fires at coordinate (x,y)
-        //Must update userBoard location hit with miss or 
+        //Must update userBoard location hit with miss or
     }
 
     public void display() {  //Displays current board state. Void because it will use println()
@@ -153,5 +164,11 @@ public class BattleBoatsBoard {
 
     public void drone(int direction, int index) {  //Scans a row or column. Updates the s
 
+    }
+
+    public static void main(String[] args){
+      BattleBoatsBoard thisboard = new BattleBoatsBoard("standard");
+      thisboard.placeBoats();
+      System.out.println(thisboard);
     }
 }
