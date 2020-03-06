@@ -33,7 +33,7 @@ public class BattleBoatsBoard {
             boardResult+= "\n";
             for (int j = 0; j < board.length; j++){
                 if (!(board[i][j] instanceof Boats)){
-                  boardResult += "0 ";
+                  boardResult += "[0 ]";
                 }
                 else{
                  boardResult += board[i][j]+ " ";

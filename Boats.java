@@ -1,13 +1,15 @@
 public class Boats{
     private int length;
     private int health;
+    private String name;
 
-    static Boats hitBoat = new Boats(-1);
-    static Boats missSpot = new Boats(-2);
+    static Boats hitBoat = new Boats(-1,"hitBoat");
+    static Boats missSpot = new Boats(-2,"missSpot");
 
-    public Boats(int length) {
+    public Boats(int length, String name) {
         this.health = length;
         this.length = length;
+        this.name = name;
     }
 
     public int getLength(){
@@ -22,7 +24,7 @@ public class Boats{
         String result = "";
         
         if (this.health > 0) {
-            result = String.valueOf(this.length);
+            result += "["+this.name+"]";
         }
 
         else if (this.health < 0) {
