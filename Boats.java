@@ -21,7 +21,7 @@ public class Boats{
         String result = "";
         
         if (this.health > 0) {
-            result = String.valueOf(this.health);
+            result = String.valueOf(this.length);
         }
 
         else if (this.health < 0) {
