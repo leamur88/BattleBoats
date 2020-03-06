@@ -1,3 +1,8 @@
+/* This is the class for Boat objects that will be stored in the board
+
+Written by osmun046 and leibo023
+*/
+
 public class Boats{
     private int length;
     private int health;

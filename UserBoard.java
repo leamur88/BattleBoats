@@ -1,3 +1,8 @@
+/* This class contains the user facing boards
+
+Written by osmun046 and leibo023
+*/
+
 public class UserBoard{
     String[][] userBoard;
     

@@ -2,9 +2,9 @@
 and use scanner to take in input until the game ends. May also contain any useful helper methods.
 
 Written by osmun046 and leibo023
- */
+*/
 
-public class BattleBoatsGame {
+public class BattleBoatsMain {
 
     public static void main(String[] args) {
       BattleBoatsBoard thisboard = new BattleBoatsBoard("expert");

@@ -1,7 +1,7 @@
 /* This class contains all functions and methods used by BattleBoatsGame class
 
 Written by osmun046 and leibo023
- */
+*/
 
 public class BattleBoatsBoard {
 		Boats[][] board;
@@ -84,14 +84,14 @@ public class BattleBoatsBoard {
 															inTheWay = true;
 															break;
 														}
-														}
+													}
 
 													if (!inTheWay){
 														fits = true;
 														for (int j=0; j<boatSizes[i].getLength(); j++){
 															board[y][x-j]=boatSizes[i];
 														}
-														} 
+													} 
 												}
 										}
 
@@ -109,9 +109,9 @@ public class BattleBoatsBoard {
 													fits = true;
 													for (int j=0; j<boatSizes[i].getLength(); j++){
 															board[y][x+j]=boatSizes[i];
-														}
-														}
+													}
 												}
+											}
 										}
 
 										else if (!horizontal && left){  //Vertical and up
@@ -147,8 +147,8 @@ public class BattleBoatsBoard {
 														for (int j=0; j<boatSizes[i].getLength(); j++){
 															board[y+j][x]=boatSizes[i];
 														}
-														}
-												}
+													}
+											}
 										}
 								}
 						}
@@ -223,7 +223,7 @@ public class BattleBoatsBoard {
 													fits = true;
 													for (int j=0; j<boatSizes[i].getLength(); j++){
 															board[y][x+j]=boatSizes[i];
-														}
+													}
 												}
 
 
@@ -244,9 +244,9 @@ public class BattleBoatsBoard {
 														for (int j=0; j<boatSizes[i].getLength(); j++){
 															board[y-j][x]=boatSizes[i];
 														}
-														}
+													}
 
-												}
+											}
 										}
 
 										else if (!horizontal && !left){  //Vertical and down
@@ -263,8 +263,8 @@ public class BattleBoatsBoard {
 														for (int j=0; j<boatSizes[i].getLength(); j++){
 															board[y+j][x]=boatSizes[i];
 														}
-														}
-												}
+													}
+											}
 										}
 								}
 						}
