@@ -237,8 +237,6 @@ public class BattleBoatsBoard {
                               board[y][x+j]=boatSizes[i];
                             }
                         }
-
-
                       }
                     }
 
@@ -253,13 +251,13 @@ public class BattleBoatsBoard {
                               break;
                             }
                           }
+
                           if (!inTheWay){
                             fits = true;
                             for (int j=0; j<boatSizes[i].getLength(); j++){
                               board[y-j][x]=boatSizes[i];
                             }
                             }
-
                         }
                     }
 
@@ -268,6 +266,7 @@ public class BattleBoatsBoard {
 
                           for (int k=0; k<boatSizes[i].getLength(); k++){
                               System.out.println(board[y+k][x]);
+
                             if (board[y+k][x] instanceof Boats){
                               System.out.println(x+" "+y);
                               inTheWay = true;
@@ -276,6 +275,7 @@ public class BattleBoatsBoard {
                           }
                           if (!inTheWay){
                             fits = true;
+
                             for (int j=0; j<boatSizes[i].getLength(); j++){
                               board[y+j][x]=boatSizes[i];
                             }
@@ -293,11 +293,11 @@ public class BattleBoatsBoard {
     }
 
     public void display() {  //Displays current board state. Void because it will use println()
-
+        System.out.println(UserBoard.getBoard());
     }
 
     public void print() {  //Displays fully revealed board state.
-
+        System.out.println(board);
     }
 
     public void missile(int x, int y) {  //Fires missile at (x,y), will call fire on (x-1,y-1);(x,y-1);(x+1,y-1);(x-1,y);(x,y);(x+1,y);(x-1,y-1);(x,y-1);(x+1,y-1)

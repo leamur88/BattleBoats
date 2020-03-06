@@ -1,5 +1,5 @@
 public class UserBoard{
-    String[][] userBoard;
+    private String[][] userBoard;
     
     public UserBoard(String gamemode){
         if (gamemode.equals("standard")){
@@ -27,6 +27,10 @@ public class UserBoard{
                                     {"-","-","-","-","-","-","-","-","-","-","-","-",},
                                     {"-","-","-","-","-","-","-","-","-","-","-","-",}};
         }
+    }
+
+    public String[][] getBoard(){
+        return this.userBoard;
     }
 
     public String toString(){
