@@ -33,10 +33,10 @@ public class BattleBoatsBoard {
             boardResult+= "\n";
             for (int j = 0; j < board.length; j++){
                 if (!(board[i][j] instanceof Boats)){
-                  boardResult += "0";
+                  boardResult += "0 ";
                 }
                 else{
-                 boardResult += board[i][j];
+                 boardResult += board[i][j]+ " ";
                 }
 
             }
@@ -75,19 +75,29 @@ public class BattleBoatsBoard {
                         left = false;
                     }
 
+                    boolean inTheWay = false;
+
                     if (horizontal && left){ //Horizontal and left
                         if (((x+1) - boatSizes[i].getLength()) >= 0){//Checks if boat can fit on board
 
                           for (int k=0; k<boatSizes[i].getLength(); k++){
                             System.out.println(board[y][x-k]);
+
                             if (board[y][x-k] instanceof Boats){ //check if different boat is in the way
+                              System.out.println(x+" "+y);
+                              inTheWay = true;
                               break;
                             }
                           }
+
+                          if (!inTheWay){
                             fits = true;
                             for (int j=0; j<boatSizes[i].getLength(); j++){
                               board[y][x-j]=boatSizes[i];
                             }
+                          }
+
+
                         }
                     }
 
@@ -97,14 +107,20 @@ public class BattleBoatsBoard {
                         for (int k=0; k<boatSizes[i].getLength(); k++){
                             System.out.println(board[y][x+k]);
                           if (board[y][x+k] instanceof Boats){ //check if different boat is in the way
+                            System.out.println(x+" "+y);
+                            inTheWay = true;
                             break;
                           }
                         }
 
+                        if (!inTheWay){
                           fits = true;
                           for (int j=0; j<boatSizes[i].getLength(); j++){
-                            board[y][x+j]=boatSizes[i];
-                          }
+                              board[y][x+j]=boatSizes[i];
+                            }
+                        }
+
+
                       }
                     }
 
@@ -114,14 +130,18 @@ public class BattleBoatsBoard {
                           for (int k=0; k<boatSizes[i].getLength(); k++){
                               System.out.println(board[y-k][x]);
                             if (board[y-k][x] instanceof Boats){
+                              System.out.println(x+" "+y);
+                              inTheWay = true;
                               break;
                             }
                           }
-
-                          fits = true;
-                          for (int j=0; j<boatSizes[i].getLength(); j++){
-                            board[y-j][x]=boatSizes[i];
+                          if (!inTheWay){
+                            fits = true;
+                            for (int j=0; j<boatSizes[i].getLength(); j++){
+                              board[y-j][x]=boatSizes[i];
+                            }
                           }
+
                       }
                     }
 
@@ -131,14 +151,18 @@ public class BattleBoatsBoard {
                           for (int k=0; k<boatSizes[i].getLength(); k++){
                               System.out.println(board[y+k][x]);
                             if (board[y+k][x] instanceof Boats){
+                              System.out.println(x+" "+y);
+                              inTheWay = true;
                               break;
                             }
                           }
-
-                          fits = true;
-                          for (int j=0; j<boatSizes[i].getLength(); j++){
-                            board[y+j][x]=boatSizes[i];
+                          if (!inTheWay){
+                            fits = true;
+                            for (int j=0; j<boatSizes[i].getLength(); j++){
+                              board[y+j][x]=boatSizes[i];
+                            }
                           }
+
                       }
                     }
                     iterations ++;
