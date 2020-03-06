@@ -44,22 +44,140 @@ public class BattleBoatsBoard {
         return boardResult;
     }
 
-
     public void placeBoats() {  //Randomly places boats on board
         if (this.gamemode.equals("standard")){
-            Boats boat5 = new Boats(5);
-            Boats boat4 = new Boats(4);
-            Boats boat31 = new Boats(3);
-            Boats boat32 = new Boats(3);
-            Boats boat2 = new Boats(2);
+            Boats boat5a = new Boats(5, "a");
+            Boats boat4a = new Boats(4, "a");
+            Boats boat3a = new Boats(3, "a");
+            Boats boat3b = new Boats(3, "b");
+            Boats boat2a = new Boats(2, "a");
 
 
-            Boats[] boatSizes = {boat5, boat4, boat31, boat32, boat2};
+            Boats[] boatSizes = {boat5a, boat4a, boat3a, boat3b, boat2a};
 
 
             for (int i =0; i < boatSizes.length; i++) {
                 boolean fits = false;
-                int iterations = 0;
+
+                while (fits == false){
+                    int x = (int)Math.floor(Math.random() * 8.0);
+                    int y = (int)Math.floor(Math.random() * 8.0);
+
+                    boolean horizontal = true;
+                    if (Math.random() < 0.5) {
+                        horizontal = false;
+                    }
+
+                    boolean left = true;
+                    if (Math.random() < 0.5) {
+                        left = false;
+                    }
+
+                    boolean inTheWay = false;
+
+                    if (horizontal && left){ //Horizontal and left
+                        if (((x+1) - boatSizes[i].getLength()) >= 0){//Checks if boat can fit on board
+
+                          for (int k=0; k<boatSizes[i].getLength(); k++){
+                            System.out.println(board[y][x-k]);
+
+                            if (board[y][x-k] instanceof Boats){ //check if different boat is in the way
+                              System.out.println(x+" "+y);
+                              inTheWay = true;
+                              break;
+                            }
+                            }
+
+                          if (!inTheWay){
+                            fits = true;
+                            for (int j=0; j<boatSizes[i].getLength(); j++){
+                              board[y][x-j]=boatSizes[i];
+                            }
+                            } 
+                        }
+                    }
+
+                    else if (horizontal && !left){  //Horizontal and right
+                      if (x + boatSizes[i].getLength() <= 8){
+
+                        for (int k=0; k<boatSizes[i].getLength(); k++){
+                            System.out.println(board[y][x+k]);
+                          if (board[y][x+k] instanceof Boats){ //check if different boat is in the way
+                            System.out.println(x+" "+y);
+                            inTheWay = true;
+                            break;
+                          }
+                        }
+
+                        if (!inTheWay){
+                          fits = true;
+                          for (int j=0; j<boatSizes[i].getLength(); j++){
+                              board[y][x+j]=boatSizes[i];
+                            }
+                            }
+                        }
+                    }
+
+                    else if (!horizontal && left){  //Vertical and up
+                      if ((y+1) - boatSizes[i].getLength() >= 0){
+
+                          for (int k=0; k<boatSizes[i].getLength(); k++){
+                              System.out.println(board[y-k][x]);
+                            if (board[y-k][x] instanceof Boats){
+                              System.out.println(x+" "+y);
+                              inTheWay = true;
+                              break;
+                            }
+                          }
+                          if (!inTheWay){
+                            fits = true;
+                            for (int j=0; j<boatSizes[i].getLength(); j++){
+                              board[y-j][x]=boatSizes[i];
+                            }
+                          }
+
+                      }
+                    }
+
+                    else if (!horizontal && !left){  //Vertical and down
+                      if (y + boatSizes[i].getLength() <= 8){
+
+                          for (int k=0; k<boatSizes[i].getLength(); k++){
+                                System.out.println(board[y+k][x]);
+                            if (board[y+k][x] instanceof Boats){
+                              System.out.println(x+" "+y);
+                              inTheWay = true;
+                              break;
+                            }
+                          }
+                          if (!inTheWay){
+                            fits = true;
+                            for (int j=0; j<boatSizes[i].getLength(); j++){
+                              board[y+j][x]=boatSizes[i];
+                            }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        if (this.gamemode.equals("expert")){
+            Boats boat5a = new Boats(5, "a");
+            Boats boat5b = new Boats(5, "b");
+            Boats boat4a = new Boats(4, "a");
+            Boats boat4b = new Boats(4, "b");
+            Boats boat3a = new Boats(3, "a");
+            Boats boat3b = new Boats(3, "b");
+            Boats boat3c = new Boats(3, "c");
+            Boats boat3d = new Boats(3, "d");
+            Boats boat2a = new Boats(2, "a");
+            Boats boat2b = new Boats(2, "b");
+
+            Boats[] boatSizes = {boat5a, boat5b, boat4a, boat4b, boat3a, boat3b, boat3c, boat3d, boat2a, boat2b};
+
+            for (int i =0; i < boatSizes.length; i++) {
+                boolean fits = false;
 
                 while (fits == false){
                     int x = (int)Math.floor(Math.random() * 8.0);
@@ -140,9 +258,9 @@ public class BattleBoatsBoard {
                             for (int j=0; j<boatSizes[i].getLength(); j++){
                               board[y-j][x]=boatSizes[i];
                             }
-                          }
+                            }
 
-                      }
+                        }
                     }
 
                     else if (!horizontal && !left){  //Vertical and down
@@ -161,18 +279,14 @@ public class BattleBoatsBoard {
                             for (int j=0; j<boatSizes[i].getLength(); j++){
                               board[y+j][x]=boatSizes[i];
                             }
-                          }
-
-                      }
+                            }
+                        }
                     }
-                    iterations ++;
-
                 }
-                //System.out.println(iterations);
-
             }
         }
     }
+
 
     public void fire(int x, int y) {  //Fires at coordinate (x,y)
         //Must update userBoard location hit with miss or
