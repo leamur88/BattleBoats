@@ -24,7 +24,7 @@ public class Boats{
         String result = "";
         
         if (this.health > 0) {
-            result += "["+this.name+"]";
+            result += "["+this.length+this.name+"] ";
         }
 
         else if (this.health < 0) {
