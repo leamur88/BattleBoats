@@ -172,8 +172,8 @@ public class BattleBoatsBoard {
 								boolean fits = false;
 
 								while (fits == false){
-										int x = (int)Math.floor(Math.random() * 8.0);
-										int y = (int)Math.floor(Math.random() * 8.0);
+										int x = (int)Math.floor(Math.random() * 12.0);
+										int y = (int)Math.floor(Math.random() * 12.0);
 
 										boolean horizontal = true;
 										if (Math.random() < 0.5) {
@@ -225,8 +225,6 @@ public class BattleBoatsBoard {
 															board[y][x+j]=boatSizes[i];
 													}
 												}
-
-
 											}
 										}
 
@@ -296,5 +294,10 @@ public class BattleBoatsBoard {
 			BattleBoatsBoard thisboard = new BattleBoatsBoard("standard");
 			thisboard.placeBoats();
 			System.out.println(thisboard);
+			
+			BattleBoatsBoard newboard = new BattleBoatsBoard("expert");
+			System.out.println(newboard);
+			newboard.placeBoats();
+			System.out.println(newboard);
 		}
 }
