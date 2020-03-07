@@ -3,6 +3,8 @@
 Written by osmun046 and leibo023
 */
 
+//Test from desktop
+
 public class BattleBoatsBoard {
 		Boats[][] board;
 		int totalShots = 0;
