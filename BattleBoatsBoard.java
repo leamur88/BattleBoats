@@ -276,23 +276,28 @@ public class BattleBoatsBoard {
 		public int fire(int row, int col) {  //Fires at coordinate (x,y)
 				//Returns 1 for a hit, 0 for a miss, -1 for a penalty
 				//Must update userBoard location hit with miss or hit
-			if (board[row][col].getHealth() == -2){
-				return 0;
+			System.out.println(board[row][col]);
+
+			if (board[row][col] == null){
 				System.out.println("MISS");
+				return 0;
+				
 			}
 
 			else if (board[row][col].getHealth() == -1){
-				return -1;
 				System.out.println("PENALTY");
+				return -1;
+				
 			}
 			
 			else{
 				board[row][col].loseHealth();
 				board[row][col] = Boats.hitBoat;
 				userBoard.updateCoordinate(row, col, "X");
+				System.out.println("HIT");
 				return 1;
 				
-				System.out.println("HIT");
+				
 			}
 		}
 
@@ -318,6 +323,8 @@ public class BattleBoatsBoard {
 			newboard.placeBoats();
 			System.out.println(newboard);
 
-			newboard.fire(1,1);
+			thisboard.fire(1,1);
+
+			//newboard.fire(1,1);
 		}
 }
