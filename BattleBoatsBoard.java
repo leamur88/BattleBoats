@@ -297,6 +297,7 @@ public class BattleBoatsBoard {
 				//Returns 1 for a hit, 0 for a miss, -2 for already been hit so change nothing
 
 			if (board[row][col] == null){
+				board[row][col] = Boats.missedSpot;
 				return 0;
 			}
 
@@ -356,12 +357,12 @@ public class BattleBoatsBoard {
 		}
 
 
-		public int drone(String direction, int index) {  //Scans a row or column. Updates the s
+		public int drone(String direction, int index) {  //Scans a row or column. Updates the user with the amount of boats in the row
 			int count = 0;
 
 			if (direction.equals("row")){
 				for (int i = 0; i < this.board[index].length; i++){
-					if (this.board[index][i] instanceof Boats && this.board[i][index].getHealth() != -2){
+					if ((this.board[index][i] instanceof Boats) && (this.board[index][i].getHealth() != -2)){
 						count ++;
 					}
 				}
@@ -383,9 +384,6 @@ public class BattleBoatsBoard {
 			thisboard.placeBoats();
 			System.out.println(thisboard);
 
-			thisboard.fire(1,1);
-
-			System.out.println(thisboard);
 
 			// BattleBoatsBoard newboard = new BattleBoatsBoard("expert");
 			// System.out.println(newboard);
@@ -393,9 +391,11 @@ public class BattleBoatsBoard {
 
 			// System.out.println(newboard);
 
-			thisboard.missile(0,4);
+			thisboard.missile(3,4);
 
-			System.out.println(thisboard.drone("column", 1));
+			System.out.println(thisboard);
+
+			System.out.println(thisboard.drone("row", 3));
 		}
 
 }

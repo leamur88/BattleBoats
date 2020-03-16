@@ -9,7 +9,7 @@ public class Boats{
 	private String name;
 
 	public static Boats hitBoat = new Boats(-1,"hitBoat");
-	public static Boats missedSpot = new Boats(-1,"missedSpot");
+	public static Boats missedSpot = new Boats(-2,"missedSpot");
 
 	public Boats(int length, String name) {
 		this.health = length;
