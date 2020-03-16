@@ -14,8 +14,6 @@ public class BattleBoatsBoard {
 				this.gamemode = gamemode;
 				if (gamemode.equals("standard")){
 						board = new Boats[8][8];
-						
-
 				}
 
 				else if (gamemode.equals("expert")){
@@ -278,51 +276,39 @@ public class BattleBoatsBoard {
 
 		public int fire(int row, int col) {  //Fires at coordinate (x,y)
 				//Returns 1 for a hit, 0 for a miss, -1 for a penalty
-				//Must update userBoard location hit with miss or hit
-			
-
-			if (board[row][col] == null){
-				return 0;
 				
+			if (board[row][col] == null){
+				board[row][col] = Boats.missedSpot;
+				return 0;
 			}
 
-			else if (board[row][col].getHealth() == -1){
+			else if (board[row][col].getHealth() == -1 || board[row][col].getHealth() == -2){
 				return -1;
-				
 			}
 			
 			else{
-				System.out.println(board[row][col]);
 				board[row][col].loseHealth();
 				board[row][col] = Boats.hitBoat;
-				return 1;
-				
-				
+				return 1;	
 			}
 		}
 
 		public int missileFire(int row, int col) {  //Fires at coordinate (x,y)
 				//Returns 1 for a hit, 0 for a miss, -2 for already been hit so change nothing
-				//Must update userBoard location hit with miss or hit
 			
-
 			if (board[row][col] == null){
 				return 0;
-				
 			}
 
 			else if (board[row][col].getHealth() == -1){
 				return -2;
-				
 			}
 			
 			else{
 				System.out.println(board[row][col]);
 				board[row][col].loseHealth();
 				board[row][col] = Boats.hitBoat;
-				return 1;
-				
-				
+				return 1;	
 			}
 		}
 
@@ -367,7 +353,7 @@ public class BattleBoatsBoard {
 			
 			if (direction.equals("row")){
 				for (int i = 0; i < this.board[index].length; i++){
-					if (this.board[index][i] != null){
+					if (this.board[index][i] instanceof Boats && this.board[i][index].getHealth() != -2){
 						count ++;
 					}
 				}
@@ -376,7 +362,7 @@ public class BattleBoatsBoard {
 
 			else if (direction.equals("column")){
 				for (int i = 0; i < this.board[0].length; i++){
-					if (this.board[i][index] != null){
+					if (this.board[i][index] instanceof Boats && this.board[i][index].getHealth() != -2){
 						count ++;
 					}
 				}
@@ -388,7 +374,11 @@ public class BattleBoatsBoard {
 			BattleBoatsBoard thisboard = new BattleBoatsBoard("standard");
 			thisboard.placeBoats();
 			System.out.println(thisboard);
-			
+
+			thisboard.fire(1,1);
+
+			System.out.println(thisboard);
+
 			// BattleBoatsBoard newboard = new BattleBoatsBoard("expert");
 			// System.out.println(newboard);
 			// newboard.placeBoats();
@@ -397,9 +387,6 @@ public class BattleBoatsBoard {
 
 			//thisboard.missile(4,4);
 			
-			
-			
-
 			System.out.println(thisboard.drone("column", 1));
 		}
 

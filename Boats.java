@@ -8,11 +8,12 @@ public class Boats{
 	private int health;
 	private String name;
 
-	public static Boats hitBoat = new Boats(-1,"hitBoat");
+	public static Boats hitBoat = new Boats(-1,"HT");
+	public static Boats missedSpot = new Boats(-2, "MS");
 
-	public Boats(int length, String name) {
-		this.health = length;
-		this.length = length;
+	public Boats(int lengthInput, String name) {
+		this.health = lengthInput;
+		this.length = lengthInput;
 		this.name = name;
 	}
 
@@ -35,8 +36,12 @@ public class Boats{
 			result += "["+this.length+this.name+"] ";
 		}
 
-		else if (this.health < 0){
-			result = "X";
+		else if (this.health == -1){
+			result = "[XX] ";
+		}
+
+		else if (this.health == -2){
+			result = "[OO] ";
 		}
 	return result;
 	}
