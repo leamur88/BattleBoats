@@ -96,7 +96,7 @@ public class BattleBoatsBoard {
 														for (int j=0; j<boatSizes[i].getLength(); j++){
 															board[y][x-j]=boatSizes[i];
 														}
-													} 
+													}
 												}
 										}
 
@@ -276,7 +276,7 @@ public class BattleBoatsBoard {
 
 		public int fire(int row, int col) {  //Fires at coordinate (x,y)
 				//Returns 1 for a hit, 0 for a miss, -1 for a penalty
-				
+
 			if (board[row][col] == null){
 				board[row][col] = Boats.missedSpot;
 				return 0;
@@ -285,17 +285,17 @@ public class BattleBoatsBoard {
 			else if (board[row][col].getHealth() == -1 || board[row][col].getHealth() == -2){
 				return -1;
 			}
-			
+
 			else{
 				board[row][col].loseHealth();
 				board[row][col] = Boats.hitBoat;
-				return 1;	
+				return 1;
 			}
 		}
 
 		public int missileFire(int row, int col) {  //Fires at coordinate (x,y)
 				//Returns 1 for a hit, 0 for a miss, -2 for already been hit so change nothing
-			
+
 			if (board[row][col] == null){
 				System.out.println("Miss");
 				return 0;
@@ -305,13 +305,13 @@ public class BattleBoatsBoard {
 				System.out.println("Nothing");
 				return -2;
 			}
-			
+
 			else{
 				System.out.println(board[row][col]);
 				System.out.println("Hit!");
 				board[row][col].loseHealth();
 				board[row][col] = Boats.hitBoat;
-				return 1;	
+				return 1;
 			}
 		}
 
@@ -319,11 +319,11 @@ public class BattleBoatsBoard {
 		public void missile(int row, int col) {  //Fires missile at (x,y), will call fire on (x-1,y-1);(x,y-1);(x+1,y-1);(x-1,y);(x,y);(x+1,y);(x-1,y-1);(x,y-1);(x+1,y-1)
 			if ((0 <= row) && (row < board.length) && (0 <= col) && (col < board.length)){
 				this.missileFire(row,col);
-				
+
 				if ((col+1 < board.length)){
 					this.missileFire(row,col+1);
 				}
-				
+
 				if ((0 <= col-1)){
 					this.missileFire(row,col-1);
 				}
@@ -331,7 +331,7 @@ public class BattleBoatsBoard {
 				if ((row+1 < board.length)){
 					this.missileFire(row+1,col);
 				}
-				
+
 				if ((row+1 < board.length) && (col+1 < board.length)){
 					this.missileFire(row+1,col+1);
 				}
@@ -350,7 +350,7 @@ public class BattleBoatsBoard {
 
 				if ((row-1 >= 0 ) && (col-1 >= 0)){
 					this.missileFire(row-1,col-1);
-				}	
+				}
 			}
 			else{
 				System.out.println("Coordinate not in bounds");
@@ -362,7 +362,7 @@ public class BattleBoatsBoard {
 
 		public int drone(String direction, int index) {  //Scans a row or column. Updates the s
 			int count = 0;
-			
+
 			if (direction.equals("row")){
 				for (int i = 0; i < this.board[index].length; i++){
 					if (this.board[index][i] instanceof Boats && this.board[i][index].getHealth() != -2){
@@ -398,16 +398,8 @@ public class BattleBoatsBoard {
 			// System.out.println(newboard);
 
 			thisboard.missile(0,4);
-			
-<<<<<<< HEAD
-			
-			
 
-			//System.out.println(thisboard.drone("column", 1));
-=======
 			System.out.println(thisboard.drone("column", 1));
->>>>>>> c3506e900e9dc5bd183fcbe83880bcdc072f06ef
 		}
 
 }
-
