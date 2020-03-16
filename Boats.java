@@ -9,7 +9,6 @@ public class Boats{
 	private String name;
 
 	public static Boats hitBoat = new Boats(-1,"hitBoat");
-	public static Boats missSpot = new Boats(-2,"missSpot");
 
 	public Boats(int length, String name) {
 		this.health = length;
@@ -32,11 +31,11 @@ public class Boats{
 	public String toString(){
 		String result = "";
 		
-		if (this.health > 0) {
+		if (this.health > 0){
 			result += "["+this.length+this.name+"] ";
 		}
 
-		else if (this.health < 0) {
+		else if (this.health < 0){
 			result = "X";
 		}
 	return result;

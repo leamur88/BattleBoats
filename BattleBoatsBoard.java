@@ -310,8 +310,25 @@ public class BattleBoatsBoard {
 
 		}
 
-		public void drone(int direction, int index) {  //Scans a row or column. Updates the s
+		public int drone(String direction, int index) {  //Scans a row or column. Updates the s
+			int count = 0;
+			
+			if (direction.equals("row")){
+				for (int i = 0; i < this.board[index].length; i++){
+					if (this.board[index][i] != null){
+						count ++;
+					}
+				}
+			}
 
+			else if (direction.equals("column")){
+				for (int i = 0; i < this.board[0].length; i++){
+					if (this.board[i][index] != null){
+						count ++;
+					}
+				}
+			}
+			return count;
 		}
 
 		public static void main(String[] args){
@@ -325,12 +342,9 @@ public class BattleBoatsBoard {
 
 			// System.out.println(newboard);
 			
-
-			
-			
-			
-
-
 			//newboard.fire(1,1);
+
+			System.out.println(thisboard.drone("column", 1));
+
 		}
 }
