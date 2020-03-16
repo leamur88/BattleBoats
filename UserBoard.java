@@ -4,34 +4,22 @@ Written by osmun046 and leibo023
 */
 
 public class UserBoard{
-	String[][] userBoard;
+	public String[][] userBoard;
 	
 	public UserBoard(String gamemode){
 		if (gamemode.equals("standard")){
-			String[][] userBoard = {{"-","-","-","-","-","-","-","-",},
-									{"-","-","-","-","-","-","-","-",},
-									{"-","-","-","-","-","-","-","-",},
-									{"-","-","-","-","-","-","-","-",},
-									{"-","-","-","-","-","-","-","-",},
-									{"-","-","-","-","-","-","-","-",},
-									{"-","-","-","-","-","-","-","-",},
-									{"-","-","-","-","-","-","-","-",}};
+			this.userBoard = new String[8][8];
 		}
 	
 		else if (gamemode.equals("expert")){
-			String[][] userBoard = {{"-","-","-","-","-","-","-","-","-","-","-","-",},
-									{"-","-","-","-","-","-","-","-","-","-","-","-",},
-									{"-","-","-","-","-","-","-","-","-","-","-","-",},
-									{"-","-","-","-","-","-","-","-","-","-","-","-",},
-									{"-","-","-","-","-","-","-","-","-","-","-","-",},
-									{"-","-","-","-","-","-","-","-","-","-","-","-",},
-									{"-","-","-","-","-","-","-","-","-","-","-","-",},
-									{"-","-","-","-","-","-","-","-","-","-","-","-",},
-									{"-","-","-","-","-","-","-","-","-","-","-","-",},
-									{"-","-","-","-","-","-","-","-","-","-","-","-",},
-									{"-","-","-","-","-","-","-","-","-","-","-","-",},
-									{"-","-","-","-","-","-","-","-","-","-","-","-",}};
-		}
+            this.userBoard = new String[12][12];
+        }
+            
+        for (int i = 0; i < userBoard[0].length; i++){
+            for (int j = 0; j < userBoard[0].length; j++){
+                userBoard[i][j] = "-";
+            }
+        }
 	}
 
 	public void updateCoordinate(int row, int col, String entry){
@@ -45,9 +33,7 @@ public class UserBoard{
 
 	public String toString(){
 		String boardResult = "";
-		System.out.println("Hello");
-		System.out.println(userBoard.length);
-		System.out.println("Goodbye");
+	
 		for (int i = 0; i < userBoard.length; i++){
 			boardResult+= "\n";
 			for (int j = 0; j < userBoard.length; j++){
@@ -57,19 +43,12 @@ public class UserBoard{
 		return boardResult;
 	}
 
-		// for (int i = 0; i < userBoard.length; i++){
-		//     for (int j = 0; j < userBoard.length; j++){
-		//         boardResult += userBoard[i][j]; 
-		//     }
-		// }
-		// return boardResult;
-
 	public int getLength(){
 		return userBoard.length;
 	}
 
 	public static void main(String[] args){
-		UserBoard expertUserBoard = new UserBoard("expert");
+		UserBoard expertUserBoard = new UserBoard("standard");
 
 		expertUserBoard.display();
 	}
