@@ -9,6 +9,7 @@ public class Boats{
 	private String name;
 
 	public static Boats hitBoat = new Boats(-1,"hitBoat");
+	public static Boats missedSpot = new Boats(-1,"missedSpot");
 
 	public Boats(int length, String name) {
 		this.health = length;
@@ -35,9 +36,14 @@ public class Boats{
 			result += "["+this.length+this.name+"] ";
 		}
 
-		else if (this.health < 0){
-			result = "X";
+		else if (this.health == -1){
+			result = "[XX] ";
 		}
+
+		else if (this.health == -2){
+			result = "[OO] ";
+		}
+
 	return result;
 	}
 }

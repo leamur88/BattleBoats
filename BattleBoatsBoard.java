@@ -297,18 +297,14 @@ public class BattleBoatsBoard {
 				//Returns 1 for a hit, 0 for a miss, -2 for already been hit so change nothing
 
 			if (board[row][col] == null){
-				System.out.println("Miss");
 				return 0;
 			}
 
-			else if (board[row][col].getHealth() == -1){
-				System.out.println("Nothing");
+			else if (board[row][col].getHealth() == -1 || board[row][col].getHealth() == -2){
 				return -2;
 			}
 
 			else{
-				System.out.println(board[row][col]);
-				System.out.println("Hit!");
 				board[row][col].loseHealth();
 				board[row][col] = Boats.hitBoat;
 				return 1;
