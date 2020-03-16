@@ -34,6 +34,15 @@ public class UserBoard{
         }
     }
 
+    public void updateCoordinate(int row, int col, String entry){
+        userBoard[row][col] = entry;
+    }
+
+     
+    public void display() {  //Displays current board state. Void because it will use println()
+        System.out.println(this.toString()); 
+    }
+
     public String toString(){
         String boardResult = "";
 
@@ -43,6 +52,12 @@ public class UserBoard{
             }
         }
         return boardResult;
+    }
+
+    public static void main(String[] args){
+        UserBoard expertUserBoard = new UserBoard("expert");
+
+        expertUserBoard.display();
     }
 }
     

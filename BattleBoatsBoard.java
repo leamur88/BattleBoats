@@ -5,6 +5,7 @@ Written by osmun046 and leibo023
 
 public class BattleBoatsBoard {
 		Boats[][] board;
+		UserBoard userBoard;
 		int totalShots = 0;
 		int turns = 0;
 		int shipsRemaining;
@@ -14,11 +15,13 @@ public class BattleBoatsBoard {
 				this.gamemode = gamemode;
 				if (gamemode.equals("standard")){
 						board = new Boats[8][8];
+						userBoard = new UserBoard("standard");
 
 				}
 
 				else if (gamemode.equals("expert")){
 						board = new Boats[12][12];
+						userBoard = new UserBoard("expert");
 				}
 
 				else {
@@ -270,19 +273,34 @@ public class BattleBoatsBoard {
 		}
 
 
-		public void fire(int x, int y) {  //Fires at coordinate (x,y)
-				//Must update userBoard location hit with miss or
-		}
+		public int fire(int row, int col) {  //Fires at coordinate (x,y)
+				//Returns 1 for a hit, 0 for a miss, -1 for a penalty
+				//Must update userBoard location hit with miss or hit
+			if (board[row][col].getHealth() == -2){
+				return 0;
+				System.out.println("MISS");
+			}
 
-		public void display() {  //Displays current board state. Void because it will use println()
-
+			else if (board[row][col].getHealth() == -1){
+				return -1;
+				System.out.println("PENALTY");
+			}
+			
+			else{
+				board[row][col].loseHealth();
+				board[row][col] = Boats.hitBoat;
+				userBoard.updateCoordinate(row, col, "X");
+				return 1;
+				
+				System.out.println("HIT");
+			}
 		}
 
 		public void print() {  //Displays fully revealed board state.
-
+			System.out.println(this.toString());
 		}
 
-		public void missile(int x, int y) {  //Fires missile at (x,y), will call fire on (x-1,y-1);(x,y-1);(x+1,y-1);(x-1,y);(x,y);(x+1,y);(x-1,y-1);(x,y-1);(x+1,y-1)
+		public void missile(int row, int col) {  //Fires missile at (x,y), will call fire on (x-1,y-1);(x,y-1);(x+1,y-1);(x-1,y);(x,y);(x+1,y);(x-1,y-1);(x,y-1);(x+1,y-1)
 
 		}
 
@@ -299,5 +317,7 @@ public class BattleBoatsBoard {
 			System.out.println(newboard);
 			newboard.placeBoats();
 			System.out.println(newboard);
+
+			newboard.fire(1,1);
 		}
 }

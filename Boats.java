@@ -8,8 +8,8 @@ public class Boats{
 	private int health;
 	private String name;
 
-	static Boats hitBoat = new Boats(-1,"hitBoat");
-	static Boats missSpot = new Boats(-2,"missSpot");
+	public static Boats hitBoat = new Boats(-1,"hitBoat");
+	public static Boats missSpot = new Boats(-2,"missSpot");
 
 	public Boats(int length, String name) {
 		this.health = length;
@@ -18,12 +18,16 @@ public class Boats{
 	}
 
 	public int getLength(){
-	return this.length;
-	}
+	    return this.length;
+    }
+    
+    public int getHealth(){
+	    return this.health;
+    }
 
 	public void loseHealth(){
-	this.health --;
-	}
+	    this.health --;
+    }
 
 	public String toString(){
 		String result = "";
