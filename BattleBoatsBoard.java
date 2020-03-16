@@ -319,44 +319,49 @@ public class BattleBoatsBoard {
 		}
 
 
-		public void missile(int row, int col) {  //Fires missile at (x,y), will call fire on (x-1,y-1);(x,y-1);(x+1,y-1);(x-1,y);(x,y);(x+1,y);(x-1,y-1);(x,y-1);(x+1,y-1)
+		public int [] missile(int row, int col) {  //Fires missile at (x,y), will call fire on (x-1,y-1);(x,y-1);(x+1,y-1);(x-1,y);(x,y);(x+1,y);(x-1,y-1);(x,y-1);(x+1,y-1)
+			int [] resultOfMissile = new int[9];
 			if ((0 <= row) && (row < board.length) && (0 <= col) && (col < board.length)){
-				this.missileFire(row,col);
+				resultOfMissile[0] = this.missileFire(row,col);
+
 
 				if ((col+1 < board.length)){
-					this.missileFire(row,col+1);
+					resultOfMissile[1] = this.missileFire(row,col+1);
+
 				}
 
 				if ((0 <= col-1)){
-					this.missileFire(row,col-1);
+					resultOfMissile[2] = this.missileFire(row,col-1);
 				}
 
 				if ((row+1 < board.length)){
-					this.missileFire(row+1,col);
+					resultOfMissile[3] = this.missileFire(row+1,col);
 				}
 
 				if ((row+1 < board.length) && (col+1 < board.length)){
-					this.missileFire(row+1,col+1);
+					resultOfMissile[4] = this.missileFire(row+1,col+1);
 				}
 
 				if ((row+1 < board.length) && (col-1 >= 0)){
-					this.missileFire(row+1,col-1);
+					resultOfMissile[5] = this.missileFire(row+1,col-1);
 				}
 
 				if ((row-1 >= 0 ) && (col+1 < board.length)){
-					this.missileFire(row-1,col+1);
+					resultOfMissile[6] = this.missileFire(row-1,col+1);
 				}
 
 				if (row-1 >= 0){
-					this.missileFire(row-1,col);
+					resultOfMissile[7] = this.missileFire(row-1,col);
 				}
 
 				if ((row-1 >= 0 ) && (col-1 >= 0)){
-					this.missileFire(row-1,col-1);
+					resultOfMissile[8] = this.missileFire(row-1,col-1);
 				}
+				return resultOfMissile;
 			}
 			else{
 				System.out.println("Coordinate not in bounds");
+				return resultOfMissile;
 			}
 
 

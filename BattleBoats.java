@@ -91,7 +91,22 @@ public class BattleBoats{
 			}
 
 			else if (action.equals("missile")){
+				boolean inBounds = false;
+				int row = -1;
+				int col = -1;
 
+				while (inBounds ==  false){
+					System.out.println("Enter a row to fire on... (between 1 and " + userBoard.getLength());
+					row = s.nextInt();
+					System.out.println("Enter a column to fire on... (between 1 and " + userBoard.getLength());
+					col = s.nextInt();
+					if ((0 <= row) && (row < userBoard.getLength()) && (0 <= col) && (col < userBoard.getLength())){
+						inBounds  = true;
+					}
+					else{
+						System.out.println("Point outside of bounds, try again");
+					}
+				}
 			}
 
 			else if (action.equals("drone")){
