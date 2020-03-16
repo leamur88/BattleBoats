@@ -280,19 +280,22 @@ public class BattleBoatsBoard {
 		public int fire(int row, int col) {  //Fires at coordinate (x,y)
 				//Returns 1 for a hit, 0 for a miss, -1 for a penalty
 				//Must update userBoard location hit with miss or hit
-			System.out.println(board[row][col]);
+			
 
-			if (board[row][col] == null ){
+			if (board[row][col] == null){
+				System.out.println("Miss");
 				return 0;
 				
 			}
 
 			else if (board[row][col].getHealth() == -1){
+				System.out.println("Penalty");
 				return -1;
 				
 			}
 			
 			else{
+				System.out.println(board[row][col]);
 				board[row][col].loseHealth();
 				board[row][col] = Boats.hitBoat;
 				System.out.println("HIT");
@@ -302,15 +305,22 @@ public class BattleBoatsBoard {
 			}
 		}
 
-		public void print() {  //Displays fully revealed board state.
-			System.out.println(this.toString());
-		}
 
 		public void missile(int row, int col) {  //Fires missile at (x,y), will call fire on (x-1,y-1);(x,y-1);(x+1,y-1);(x-1,y);(x,y);(x+1,y);(x-1,y-1);(x,y-1);(x+1,y-1)
+			this.fire(row-1,col-1);
+			this.fire(row-1,col);
+			this.fire(row,col-1);
+			this.fire(row,col);
+			this.fire(row+1,col);
+			this.fire(row,col+1);
+			this.fire(row+1,col+1);
+			this.fire(row+1,col-1);
+			this.fire(row-1,col+1);
+
 
 		}
 
-		public void drone(int direction, int index) {  //Scans a row or column. Updates the s
+		public void drone(int direction, int index) {  //Scans a row or column. Updates the user on how many boat objects are in the col/row
 
 		}
 
@@ -324,13 +334,13 @@ public class BattleBoatsBoard {
 			// newboard.placeBoats();
 
 			// System.out.println(newboard);
+
+			thisboard.missile(4,4);
+			
+			
 			
 
-			
-			
-			
 
-
-			//newboard.fire(1,1);
+			
 		}
 }
