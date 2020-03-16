@@ -5,7 +5,6 @@ Written by osmun046 and leibo023
 
 public class BattleBoatsBoard {
 		Boats[][] board;
-		UserBoard userBoard;
 		int totalShots = 0;
 		int turns = 0;
 		int shipsRemaining;
@@ -15,13 +14,12 @@ public class BattleBoatsBoard {
 				this.gamemode = gamemode;
 				if (gamemode.equals("standard")){
 						board = new Boats[8][8];
-						userBoard = new UserBoard("standard");
+						
 
 				}
 
 				else if (gamemode.equals("expert")){
 						board = new Boats[12][12];
-						userBoard = new UserBoard("expert");
 				}
 
 				else {
@@ -46,6 +44,12 @@ public class BattleBoatsBoard {
 				}
 				return boardResult;
 		}
+
+		public Boats getBoat(int row, int col){
+			return this.board[row][col];
+		}
+
+
 
 		public void placeBoats() {  //Randomly places boats on board
 				if (this.gamemode.equals("standard")){
@@ -278,14 +282,12 @@ public class BattleBoatsBoard {
 				//Must update userBoard location hit with miss or hit
 			System.out.println(board[row][col]);
 
-			if (board[row][col] == null){
-				System.out.println("MISS");
+			if (board[row][col] == null ){
 				return 0;
 				
 			}
 
 			else if (board[row][col].getHealth() == -1){
-				System.out.println("PENALTY");
 				return -1;
 				
 			}
@@ -293,7 +295,6 @@ public class BattleBoatsBoard {
 			else{
 				board[row][col].loseHealth();
 				board[row][col] = Boats.hitBoat;
-				userBoard.updateCoordinate(row, col, "X");
 				System.out.println("HIT");
 				return 1;
 				
@@ -318,12 +319,17 @@ public class BattleBoatsBoard {
 			thisboard.placeBoats();
 			System.out.println(thisboard);
 			
-			BattleBoatsBoard newboard = new BattleBoatsBoard("expert");
-			System.out.println(newboard);
-			newboard.placeBoats();
-			System.out.println(newboard);
+			// BattleBoatsBoard newboard = new BattleBoatsBoard("expert");
+			// System.out.println(newboard);
+			// newboard.placeBoats();
 
-			thisboard.fire(1,1);
+			// System.out.println(newboard);
+			
+
+			
+			
+			
+
 
 			//newboard.fire(1,1);
 		}
