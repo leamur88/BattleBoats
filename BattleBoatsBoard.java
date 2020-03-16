@@ -283,13 +283,11 @@ public class BattleBoatsBoard {
 			
 
 			if (board[row][col] == null){
-				System.out.println("Miss");
 				return 0;
 				
 			}
 
 			else if (board[row][col].getHealth() == -1){
-				System.out.println("Penalty");
 				return -1;
 				
 			}
@@ -298,7 +296,6 @@ public class BattleBoatsBoard {
 				System.out.println(board[row][col]);
 				board[row][col].loseHealth();
 				board[row][col] = Boats.hitBoat;
-				System.out.println("HIT");
 				return 1;
 				
 				
