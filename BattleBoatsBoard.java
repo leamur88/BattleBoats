@@ -20,9 +20,6 @@ public class BattleBoatsBoard {
 						board = new Boats[12][12];
 				}
 
-				else {
-						System.out.println("Choose either standard or expert.");
-				}
 		}
 
 		public String toString(){
@@ -279,15 +276,24 @@ public class BattleBoatsBoard {
 
 			if (board[row][col] == null){
 				board[row][col] = Boats.missedSpot;
+				System.out.println("Miss");
 				return 0;
 			}
 
 			else if (board[row][col].getHealth() == -1 || board[row][col].getHealth() == -2){
+				System.out.println("Penalty");
 				return -1;
 			}
 
 			else{
 				board[row][col].loseHealth();
+				if (board[row][col].getHealth() == 0){
+					System.out.println("Sunk");
+				}
+				else{
+					System.out.println("Hit");
+				}
+
 				board[row][col] = Boats.hitBoat;
 				return 1;
 			}
