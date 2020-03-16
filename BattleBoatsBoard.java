@@ -320,8 +320,29 @@ public class BattleBoatsBoard {
 
 		}
 
+<<<<<<< HEAD
 		public void drone(int direction, int index) {  //Scans a row or column. Updates the user on how many boat objects are in the col/row
+=======
+		public int drone(String direction, int index) {  //Scans a row or column. Updates the s
+			int count = 0;
+			
+			if (direction.equals("row")){
+				for (int i = 0; i < this.board[index].length; i++){
+					if (this.board[index][i] != null){
+						count ++;
+					}
+				}
+			}
+>>>>>>> 0579639956a1f3496f6f0d38ffab6e6084c0980e
 
+			else if (direction.equals("column")){
+				for (int i = 0; i < this.board[0].length; i++){
+					if (this.board[i][index] != null){
+						count ++;
+					}
+				}
+			}
+			return count;
 		}
 
 		public static void main(String[] args){
@@ -334,6 +355,7 @@ public class BattleBoatsBoard {
 			// newboard.placeBoats();
 
 			// System.out.println(newboard);
+<<<<<<< HEAD
 
 			thisboard.missile(4,4);
 			
@@ -342,5 +364,12 @@ public class BattleBoatsBoard {
 
 
 			
+=======
+			
+			//newboard.fire(1,1);
+
+			System.out.println(thisboard.drone("column", 1));
+
+>>>>>>> 0579639956a1f3496f6f0d38ffab6e6084c0980e
 		}
 }

@@ -31,11 +31,11 @@ public class Boats{
 	public String toString(){
 		String result = "";
 		
-		if (this.health > 0) {
+		if (this.health > 0){
 			result += "["+this.length+this.name+"] ";
 		}
 
-		else if (this.health < 0) {
+		else if (this.health < 0){
 			result = "X";
 		}
 	return result;
