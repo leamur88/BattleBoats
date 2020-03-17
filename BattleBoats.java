@@ -107,8 +107,6 @@ public static void main(String[] args){
 		System.out.println("Missiles left: " + missilesRemaining);
 		System.out.println("Drones left: " + dronesRemaining);
 		System.out.println(userBoard);
-		System.out.println("ORIG BOARD:::");
-		printBoard(originalBoard);  
 		System.out.println();
 		turns ++;
 
