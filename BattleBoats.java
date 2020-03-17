@@ -39,9 +39,11 @@ public static void main(String[] args){
 						+ "| \n"
 						+ "| >>>FIRE: Basic attack function. Will hit one square and tell you if there \n"
 						+ "| was a boat there or not. You can use fire an unlimited number if times. \n"
+						+ "| \n"
 						+ "| >>>MISSILE: Missile hit a 3 by 3 square centered at the point you enter. \n"
 						+ "| Like fire, it will show what boats were found in that square. In standard \n"
 						+ "| mode you have only one missile available, in expert mode you have two. \n"
+						+ "| \n"
 						+ "| >>>DRONE: Drone allows you to scan one row or column of the board. When the \n"
 						+ "| returns, it will tell you how many ships it found in that row or column. \n"
 						+ "| The drone will count both sunk and unsunk ships. \n"
@@ -137,11 +139,10 @@ public static void main(String[] args){
 			int result = masterBoard.fire(row, col);
 			if (result == 0){
 				System.out.println("\nMISS!");
-				userBoard.updateCoordinate(row, col, 0);
+				userBoard.updateCoordinate(row, col, result);
 			}
 			else if (result == 1){
 				System.out.println("\nHIT!");
-				}
 				userBoard.updateCoordinate(row, col, 1);
 				totalHealth--;
 				if (totalHealth < 1){
@@ -150,6 +151,7 @@ public static void main(String[] args){
 					printBoard(originalBoard);
 					cont = false;
 				}
+			}
 
 			else if ((result == -1) || (result ==  -2)){
 				turns++;

@@ -282,7 +282,7 @@ public class BattleBoatsBoard{
 				return -1;
 			}
 
-			else{
+			else if (board[row][col].getHealth() > 0){
 				board[row][col].loseHealth();
 				if (board[row][col].getHealth() == 0){
 					System.out.println("You have sunk a boat!");
@@ -290,6 +290,10 @@ public class BattleBoatsBoard{
 
 				board[row][col] = Boats.hitBoat;
 				return 1;
+			}
+
+			else{
+				return -8;
 			}
 		}
 

@@ -23,7 +23,7 @@ public class UserBoard{
 	}
 
     public void updateCoordinate(int row, int col, int entry){  //Helper method to update a coordinate on the userBoard
-                                                                //Used in BattleBoats when a location is hit
+			                                                    //Used in BattleBoats when a location is hit
 		if (entry == 0){
 			userBoard[row][col] = "[OO] ";
 		}

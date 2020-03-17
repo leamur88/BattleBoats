@@ -32,8 +32,9 @@ Dependencies are BattleBoatsBoard.java, Boats.java, and UserBoard.java.
 
 
 KNOWN BUGS/DEFECTS
--"You have sunk a boat" does not print when a boat is sunk
+-		DONE "You have sunk a boat" does not print when a boat is sunk
 -Extra loop of while after input
+-If an integer input is expected and a float or string is given instead the program crashes
 -       DONE Does not allow for spaces after string inputs
 -       DONE Fire prints fire again
 -       DONE Does not allow for capitals in string inputs
