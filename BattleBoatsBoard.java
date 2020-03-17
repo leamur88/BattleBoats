@@ -294,7 +294,7 @@ public class BattleBoatsBoard{
 		}
 
 		public int missileFire(int row, int col) {  //Fires at coordinate (x,y). Version used only in the missile.
-				//Returns 1 for a hit, 0 for a miss, -2 for already been hit so change nothing
+				//Returns 1 for a hit, 0 for a miss, -2 for already been hit so change nothing because there is no penalty
 
 			if (board[row][col] == null){
 				board[row][col] = Boats.missedSpot;
@@ -315,9 +315,9 @@ public class BattleBoatsBoard{
 
 		public int [] missile(int row, int col){  //Fires missile at (x,y), will call fire on (x-1,y-1);(x,y-1);(x+1,y-1);(x-1,y);(x,y);(x+1,y);(x-1,y-1);(x,y-1);(x+1,y-1)
 			int [] resultOfMissile = {-3,-3,-3,-3,-3,-3,-3,-3,-3}; // array of results of missile strike, -3 indicates that that area was not hit because it was out of bounds
-			if ((0 <= row) && (row < board.length) && (0 <= col) && (col < board.length)){
+			if ((0 <= row) && (row < board.length) && (0 <= col) && (col < board.length)){//Rendundant check but ensures we don't have to check again for all the other cases
 				resultOfMissile[0] = this.missileFire(row,col);
-
+				//The missile result array is filled with -3 to start in case one of the other 8 blocks the missile is intended to hit is out of bounds
 				if ((col+1 < board.length)){
 					resultOfMissile[1] = this.missileFire(row,col+1);
 				}
