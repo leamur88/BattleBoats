@@ -34,7 +34,7 @@ public static void main(String[] args){
 						+ "| larger board and twice as many ships to sink! \n"
 						+ "| \n"
 						+ "| You have a number of tools at you disposal including the basic fire \n"
-						+ "| function, the drone, ad missiles! (They go 'BOOM!') An explanation of \n"
+						+ "| function, the drone, and missiles! (They go 'BOOM!') An explanation of \n"
 						+ "| these functions are given below... \n"
 						+ "| \n"
 						+ "| >>>FIRE: Basic attack function. Will hit one square and tell you if there \n"
