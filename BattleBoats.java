@@ -66,7 +66,7 @@ public static void main(String[] args){
 
 	BattleBoatsBoard masterBoard = new BattleBoatsBoard(gamemode);  //Creates master board with gamemode input
 	masterBoard.placeBoats();  //Places boats on the master board
-	
+
 	String [][] originalBoard;
 	if (gamemode.equals("standard")){  //This block creates a string version of the master board to display at the end of the game
 		originalBoard = new String[8][8];
@@ -107,8 +107,6 @@ public static void main(String[] args){
 		System.out.println("Missiles left: " + missilesRemaining);
 		System.out.println("Drones left: " + dronesRemaining);
 		System.out.println(userBoard);
-		System.out.println("ORIG BOARD:::");
-		printBoard(originalBoard);  
 		System.out.println();
 		turns ++;
 
@@ -152,13 +150,13 @@ public static void main(String[] args){
 					printBoard(originalBoard);
 					cont = false;
 				}
-			
+
 			else if ((result == -1) || (result ==  -2)){
 				turns++;
 				System.out.println("\nPenalty! This spot has already been hit, one extra turn added.");
 			}
 		}
-		
+
 
 //MISSLE
 		else if (action.equals("missile")){
@@ -318,9 +316,8 @@ public static void main(String[] args){
 			System.out.println("Please enter a vaild input.");
 			turns --;
 		}
-		}		
-	s.close();
+		}
+		s.close();
 	}
 
 }
-
