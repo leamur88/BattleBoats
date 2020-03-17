@@ -8,6 +8,16 @@ public class BattleBoats{
 	private static boolean validInput = false;
 	private static int totalHealth;
 
+  public static void printBoard(String[][] originalBoard){
+    String boardResult = ""; //For loops to print the original board
+						for (int i = 0; i < originalBoard.length; i++){
+							boardResult+= "\n";
+							for (int j = 0; j < originalBoard.length; j++){
+								boardResult += originalBoard[i][j];
+							}
+						}
+				System.out.println(boardResult);
+  }
 	public static void main(String[] args){
 		Scanner s = new Scanner(System.in);
 		System.out.println("Welcome to BattleBoats!");
@@ -102,15 +112,16 @@ public class BattleBoats{
 					totalHealth --;
 					if (totalHealth < 1){
 						System.out.println("Wow you're so cool you beat the game!!! You managed this amazing feat in "+ turns+ " turns.");
-						System.out.println("Here is the revealed board:");
-						String boardResult = ""; //For loops to print the original board
-						for (int i = 0; i < masterBoard.board.length; i++){
-							boardResult+= "\n";
-							for (int j = 0; j < masterBoard.board.length; j++){
-								boardResult += originalBoard[i][j];
-							}
-						}
-						System.out.println(boardResult);
+            System.out.println("Here is the revealed board:");
+            printBoard(originalBoard);
+						// String boardResult = ""; //For loops to print the original board
+						// for (int i = 0; i < masterBoard.board.length; i++){
+						// 	boardResult+= "\n";
+						// 	for (int j = 0; j < masterBoard.board.length; j++){
+						// 		boardResult += originalBoard[i][j];
+						// 	}
+						// }
+						// System.out.println(boardResult);
 						cont = false;
 					}
 				}
@@ -194,14 +205,15 @@ public class BattleBoats{
 					if (totalHealth < 1){
 							System.out.println("Wow you're so cool you beat the game!!! You managed this amazing feat in "+ turns+ " turns.");
 							System.out.println("Here is the revealed board:");
-							String boardResult = "";//For loops to print the original board
-							for (int i = 0; i < masterBoard.board.length; i++){
-								boardResult+= "\n";
-								for (int j = 0; j < masterBoard.board.length; j++){
-									boardResult += originalBoard[i][j];
-								}
-							}
-							System.out.println(boardResult);
+							// String boardResult = "";//For loops to print the original board
+							// for (int i = 0; i < masterBoard.board.length; i++){
+							// 	boardResult+= "\n";
+							// 	for (int j = 0; j < masterBoard.board.length; j++){
+							// 		boardResult += originalBoard[i][j];
+							// 	}
+							// }
+              // System.out.println(boardResult);
+              printBoard(originalBoard);
 							cont = false;
 						}
 
@@ -280,8 +292,8 @@ public class BattleBoats{
         System.out.println("You lose! HAHAHHAHAH!");
         System.out.println("It took you " + turns + " turns to finally give up!");
         System.out.println("Here is the original board:");
-
-        //ADD PRINTING
+        printBoard(originalBoard);
+        
         
         cont = false;
 			}
