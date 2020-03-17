@@ -31,15 +31,21 @@ Dependencies are BattleBoatsBoard.java, Boats.java, and UserBoard.java.
 
 
 KNOWN BUGS/DEFECTS
-
+-"You have sunk a boat" does not print when a boat is sunk
+-Extra loop of while after input
+-       DONE Does not allow for spaces after string inputs
+-       DONE Fire prints fire again
+-       DONE Does not allow for capitals in string inputs
 
 
 //////////////////////////////////////////////////////////////////////////////
 STILL TO DO FOR ETHAN
--make userBoard format the same as masterBoard
--fix indentaion and whitespace
--ensure camel case
--make prompts funnier
--add comments
+-       DONE make userBoard format the same as masterBoard
+-       DONE fix indentaion and whitespace
+-       DONE ensure camel case
+-       DONE make prompts funnier
+-       DONE add comments
 -test over and over again
 -update known bugs
+-fix known bugs
+-       DONE close scanner
