@@ -22,8 +22,20 @@ public class UserBoard{
         }
 	}
 
-	public void updateCoordinate(int row, int col, String entry){
-		userBoard[row][col] = entry;
+	public void updateCoordinate(int row, int col, int entry){
+		if (entry == 0){
+			userBoard[row][col] = "O";
+		}
+		else if (entry == 1){
+			userBoard[row][col] = "X";
+		}
+		else if ((entry == -1) || (entry == -2)){
+			userBoard[row][col] = userBoard[row][col];
+		}
+
+		else{
+			userBoard[row][col] = "SomethingWentWrong";
+		}
 	}
 
 	 

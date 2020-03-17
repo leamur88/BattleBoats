@@ -320,7 +320,7 @@ public class BattleBoatsBoard {
 
 
 		public int [] missile(int row, int col) {  //Fires missile at (x,y), will call fire on (x-1,y-1);(x,y-1);(x+1,y-1);(x-1,y);(x,y);(x+1,y);(x-1,y-1);(x,y-1);(x+1,y-1)
-			int [] resultOfMissile = new int[9];
+			int [] resultOfMissile = {-3,-3,-3,-3,-3,-3,-3,-3,-3}; // array of results of missile strike, -3 indicates that that area was not hit because it was out of bounds
 			if ((0 <= row) && (row < board.length) && (0 <= col) && (col < board.length)){
 				resultOfMissile[0] = this.missileFire(row,col);
 
