@@ -16,7 +16,7 @@ private static int totalHealth;
 public static void printBoard(String[][] originalBoard){  //Helper method to print original board
 	String boardResult = ""; //For loops to print the original board
 						for (int i = 0; i < originalBoard.length; i++){
-							boardResult+= "\n";
+							boardResult += "\n";
 							for (int j = 0; j < originalBoard.length; j++){
 								boardResult += originalBoard[i][j];
 							}
@@ -74,8 +74,8 @@ public static void main(String[] args){
 	else{
 		originalBoard = new String[12][12];
 	}
-	for (int i =0; i<masterBoard.board.length; i++){
-		for (int j =0; j<masterBoard.board.length; j++){
+	for (int i = 0; i<masterBoard.board.length; i++){
+		for (int j = 0; j<masterBoard.board.length; j++){
 			if (masterBoard.board[i][j] == null){
 				originalBoard[i][j] = "[  ] ";
 			}
@@ -106,7 +106,9 @@ public static void main(String[] args){
 		System.out.println(">>>TURN " + (turns + 1) + "<<<");
 		System.out.println("Missiles left: " + missilesRemaining);
 		System.out.println("Drones left: " + dronesRemaining);
-		System.out.println(userBoard);  
+		System.out.println(userBoard);
+		System.out.println("ORIG BOARD:::");
+		printBoard(originalBoard);  
 		System.out.println();
 		turns ++;
 
@@ -130,29 +132,30 @@ public static void main(String[] args){
 					inBounds  = true;
 				}
 				else{
-					System.out.println("Point out of bounds, try again.");
+					System.out.println("Point out of bounds, try again.\n");
 				}
 			}
 
-			int result = masterBoard.fire(row,col);
+			int result = masterBoard.fire(row, col);
 			if (result == 0){
 				System.out.println("\nMISS!");
-				userBoard.updateCoordinate(row,col,0);
+				userBoard.updateCoordinate(row, col, 0);
 			}
 			else if (result == 1){
 				System.out.println("\nHIT!");
-				userBoard.updateCoordinate(row,col,1);
-				totalHealth --;
+				}
+				userBoard.updateCoordinate(row, col, 1);
+				totalHealth--;
 				if (totalHealth < 1){
 					System.out.println("Wow you are SO cool! You sunk all the ships! You managed this amazing feat in "+ turns+ " turns.");
-		System.out.println("Here is the revealed board:");
-		printBoard(originalBoard);
+					System.out.println("Here is the revealed board:");
+					printBoard(originalBoard);
 					cont = false;
 				}
 			}
 			else if ((result == -1) || (result ==  -2)){
-				turns ++;
-				System.out.println("Penalty! This spot has already been hit, one extra turn added.");
+				turns++;
+				System.out.println("\nPenalty! This spot has already been hit, one extra turn added.");
 			}
 		}
 
@@ -172,61 +175,61 @@ public static void main(String[] args){
 						inBounds  = true;
 					}
 					else{
-						System.out.println("Point outside of bounds, try again stupid.");
+						System.out.println("Point outside of bounds, try again stupid.\n");
 					}
 				}
 
 				int [] results = masterBoard.missile(row,col);
 				int damageDone = 0;
 
-				for (int i=0; i < results.length; i++){
-					if (results[i]==-3){
+				for (int i = 0; i < results.length; i++){
+					if (results[i] == -3){
 						continue;
 					}
 					switch (i){
 						case 0:
-						userBoard.updateCoordinate(row,col,results[i]);
+						userBoard.updateCoordinate(row, col, results[i]);
 						break;
 
 						case 1:
-						userBoard.updateCoordinate(row,col+1,results[i]);
+						userBoard.updateCoordinate(row, col+1, results[i]);
 						break;
 
 						case 2:
-						userBoard.updateCoordinate(row,col-1,results[i]);
+						userBoard.updateCoordinate(row, col-1, results[i]);
 						break;
 
 						case 3:
-						userBoard.updateCoordinate(row+1,col,results[i]);
+						userBoard.updateCoordinate(row+1, col, results[i]);
 						break;
 
 						case 4:
-						userBoard.updateCoordinate(row+1,col+1,results[i]);
+						userBoard.updateCoordinate(row+1, col+1, results[i]);
 						break;
 
 						case 5:
-						userBoard.updateCoordinate(row+1,col-1,results[i]);
+						userBoard.updateCoordinate(row+1, col-1, results[i]);
 						break;
 
 						case 6:
-						userBoard.updateCoordinate(row-1,col+1,results[i]);
+						userBoard.updateCoordinate(row-1, col+1, results[i]);
 						break;
 
 						case 7:
-						userBoard.updateCoordinate(row-1,col,results[i]);
+						userBoard.updateCoordinate(row-1, col, results[i]);
 						break;
 
 						case 8:
-						userBoard.updateCoordinate(row-1,col-1,results[i]);
+						userBoard.updateCoordinate(row-1, col-1, results[i]);
 						break;
 					}
-					if (results[i]==1){
+					if (results[i] == 1){
 						damageDone ++;
 					}
 				}
 
 				totalHealth -= damageDone;
-				missilesRemaining--;
+				missilesRemaining --;
 				System.out.println("\nYou now have " + missilesRemaining + " missiles remaining.");
 				if (totalHealth < 1){
 						System.out.println("Wow you are SO cool! You sunk all the ships! You managed this amazing feat in "+ turns+ " turns.");
@@ -293,7 +296,7 @@ public static void main(String[] args){
 				else{
 					System.out.println("You have no more drones remaining, you imbecile!");
 					droneCont = false;
-					turns--;
+					turns --;
 					break;
 				}
 			}

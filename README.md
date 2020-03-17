@@ -51,3 +51,4 @@ STILL TO DO FOR ETHAN
 -fix known bugs
 -       DONE close scanner
 -       DONE show drones and missiles remaining each turn
+-Board representations have indicies on the side
