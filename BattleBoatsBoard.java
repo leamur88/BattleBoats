@@ -316,37 +316,64 @@ public class BattleBoatsBoard{
 		public int [] missile(int row, int col){  //Fires missile at (x,y), will call fire on (x-1,y-1);(x,y-1);(x+1,y-1);(x-1,y);(x,y);(x+1,y);(x-1,y-1);(x,y-1);(x+1,y-1)
 			int [] resultOfMissile = {-3,-3,-3,-3,-3,-3,-3,-3,-3}; // array of results of missile strike, -3 indicates that that area was not hit because it was out of bounds
 			if ((0 <= row) && (row < board.length) && (0 <= col) && (col < board.length)){//Rendundant check but ensures we don't have to check again for all the other cases
+				if ((board[row][col] != null) && (board[row][col].getHealth()==1)){//checks to see if the spot about to get hit will sink the boat.
+					System.out.println("You have sunk a boat!");
+				}
 				resultOfMissile[0] = this.missileFire(row,col);
 				//The missile result array is filled with -3 to start in case one of the other 8 blocks the missile is intended to hit is out of bounds
 				if ((col+1 < board.length)){
+					if ((board[row][col+1] != null) && (board[row][col+1].getHealth()==1)){//this also checks to see if the spot intended to get hit is null in order to prevent nullPointerExceptions from .getHealth()
+					System.out.println("You have sunk a boat!");
+					}
 					resultOfMissile[1] = this.missileFire(row,col+1);
 				}
 
 				if ((0 <= col-1)){
+					if ((board[row][col-1] != null) && (board[row][col-1].getHealth()==1)){
+					System.out.println("You have sunk a boat!");
+					}
 					resultOfMissile[2] = this.missileFire(row,col-1);
 				}
 
 				if ((row+1 < board.length)){
+					if ((board[row+1][col] != null) && (board[row+1][col].getHealth()==1)){
+					System.out.println("You have sunk a boat!");
+					}
 					resultOfMissile[3] = this.missileFire(row+1,col);
 				}
 
 				if ((row+1 < board.length) && (col+1 < board.length)){
+					if ((board[row+1][col+1] != null) && (board[row+1][col+1].getHealth()==1)){
+					System.out.println("You have sunk a boat!");
+					}
 					resultOfMissile[4] = this.missileFire(row+1,col+1);
 				}
 
 				if ((row+1 < board.length) && (col-1 >= 0)){
+					if ((board[row+1][col-1] != null) && (board[row+1][col-1].getHealth()==1)){
+					System.out.println("You have sunk a boat!");
+					}
 					resultOfMissile[5] = this.missileFire(row+1,col-1);
 				}
 
 				if ((row-1 >= 0 ) && (col+1 < board.length)){
+					if ((board[row-1][col+1] != null) && (board[row-1][col+1].getHealth()==1)){
+					System.out.println("You have sunk a boat!");
+					}
 					resultOfMissile[6] = this.missileFire(row-1,col+1);
 				}
 
 				if (row-1 >= 0){
+					if ((board[row-1][col] != null) && (board[row-1][col].getHealth()==1)){
+					System.out.println("You have sunk a boat!");
+					}
 					resultOfMissile[7] = this.missileFire(row-1,col);
 				}
 
 				if ((row-1 >= 0 ) && (col-1 >= 0)){
+					if ((board[row-1][col-1] != null) && (board[row-1][col-1].getHealth()==1)){
+					System.out.println("You have sunk a boat!");
+					}
 					resultOfMissile[8] = this.missileFire(row-1,col-1);
 				}
 				return resultOfMissile;
