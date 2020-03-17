@@ -152,12 +152,13 @@ public static void main(String[] args){
 					printBoard(originalBoard);
 					cont = false;
 				}
-			}
+			
 			else if ((result == -1) || (result ==  -2)){
 				turns++;
 				System.out.println("\nPenalty! This spot has already been hit, one extra turn added.");
 			}
 		}
+		
 
 //MISSLE
 		else if (action.equals("missile")){
@@ -166,7 +167,7 @@ public static void main(String[] args){
 				int row = -1;
 				int col = -1;
 
-				while (inBounds ==  false){
+				while (inBounds ==  false){//Simply checks if initial missile spot is in bounds
 					System.out.println("Enter a row to fire on... (between 0 and " + (userBoard.getLength()-1)+")");
 					row = s.nextInt();
 					System.out.println("Enter a column to fire on... (between 0 and " + (userBoard.getLength()-1)+")");
@@ -183,10 +184,10 @@ public static void main(String[] args){
 				int damageDone = 0;
 
 				for (int i = 0; i < results.length; i++){
-					if (results[i] == -3){
+					if (results[i] == -3){//This catches all of the inidicies whose location is not in bounds
 						continue;
 					}
-					switch (i){
+					switch (i){//Each index in the missileResults array is associated with a position relative to the row and col the missile was asssigned to.
 						case 0:
 						userBoard.updateCoordinate(row, col, results[i]);
 						break;
@@ -317,8 +318,8 @@ public static void main(String[] args){
 			System.out.println("Please enter a vaild input.");
 			turns --;
 		}
-		}
-
 		s.close();
+		}		
 	}
 }
+
