@@ -316,8 +316,8 @@ public static void main(String[] args){
 			System.out.println("Please enter a vaild input.");
 			turns --;
 		}
-		s.close();
-		}		
+		}	
+		s.close();	
 	}
 }
 
