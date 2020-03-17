@@ -391,22 +391,22 @@ public class BattleBoatsBoard {
 		}
 
 		public static void main(String[] args){
-			BattleBoatsBoard thisboard = new BattleBoatsBoard("standard");
-			thisboard.placeBoats();
-			System.out.println(thisboard);
+			// BattleBoatsBoard thisboard = new BattleBoatsBoard("standard");
+			// thisboard.placeBoats();
+			// System.out.println(thisboard);
 
 
-			// BattleBoatsBoard newboard = new BattleBoatsBoard("expert");
-			// System.out.println(newboard);
-			// newboard.placeBoats();
+			// // BattleBoatsBoard newboard = new BattleBoatsBoard("expert");
+			// // System.out.println(newboard);
+			// // newboard.placeBoats();
 
-			// System.out.println(newboard);
+			// // System.out.println(newboard);
 
-			thisboard.missile(3,4);
+			// thisboard.missile(3,4);
 
-			System.out.println(thisboard);
+			// System.out.println(thisboard);
 
-			System.out.println(thisboard.drone("row", 3));
+			// System.out.println(thisboard.drone("row", 3));
 		}
 
 }
