@@ -1,3 +1,8 @@
+/* This class contains the main driver method and any helpers
+
+Written by osmun046 and leibo023
+*/
+
 import java.util.Scanner;
 
 public class BattleBoats{
@@ -23,9 +28,9 @@ public class BattleBoats{
 		System.out.println("Welcome to BattleBoats!");
 		System.out.println("Choose your difficulty: 'standard' or 'expert'");
 		String gamemode = s.nextLine();
-		
+
 		while (validInput == false) {
-			
+
 			if (gamemode.equals("standard") || (gamemode.equals("expert"))){
 				validInput = true;
 			}
@@ -54,19 +59,19 @@ public class BattleBoats{
 			}
 		}
 		UserBoard userBoard =  new UserBoard(gamemode);
-		
+
 		if (gamemode.equals("standard")){
 			totalHealth = 17;
 			dronesRemaining = 1;
 			missilesRemaining = 1;
 	}
-	
+
 		else{
 			totalHealth = 34;
 			dronesRemaining = 2;
 			missilesRemaining = 2;
 		}
-		
+
 		boolean cont = true;
 
 
@@ -84,7 +89,7 @@ public class BattleBoats{
 			System.out.println(action);
 
 			if (action.equals("fire")){
-				
+
 				boolean inBounds = false;
 				int row = -1;
 				int col = -1;
@@ -101,7 +106,7 @@ public class BattleBoats{
 						System.out.println("Point outside of bounds, try again");
 					}
 				}
-				
+
 				int result = masterBoard.fire(row,col);
 				if (result == 0){
 					System.out.println("Miss!");
@@ -223,10 +228,7 @@ public class BattleBoats{
 				else{
 					System.out.println("You have no more missles remaining");
 				}
-
-					
 			}
-
 
 
 //DRONE
@@ -234,10 +236,10 @@ public class BattleBoats{
 				String direction = "";
 				int index = -1;
 				boolean droneCont = true;
-				
+
 				while (droneCont = true){
 				  	if (dronesRemaining > 0){
-					
+
 						boolean validDirection = false;
 						while (validDirection == false){
 							System.out.println("Would you like to scan a 'row' or 'column'?");
@@ -249,7 +251,7 @@ public class BattleBoats{
 								System.out.println("Enter 'row' or 'column'.");
 						  	}
 						}
-						
+
 						boolean validIndex = false;
 						while (validIndex == false){
 							System.out.println("What " + direction + " would you like to scan? (between 0 and " + (userBoard.getLength() - 1) + ")");
@@ -261,14 +263,14 @@ public class BattleBoats{
 							System.out.println("Must be between 1 and " + (userBoard.getLength() - 1) +".");
 						  	}
 						}
-						  
+
 							if (direction.equals("row")){
 								System.out.println(masterBoard.drone("row", index) + " ships were found in this " + direction + " (hit or unhit).");
 								droneCont = false;
 								dronesRemaining --;
 								break;
 						  	}
-			  
+
 						  	else if (direction.equals("column")){
 								System.out.println(masterBoard.drone("column", index) + " ships were found in this " + direction + " (hit or unhit).");
 								droneCont = false;
@@ -285,8 +287,8 @@ public class BattleBoats{
 					}
 				}
 		  	}
-	  
-	  
+
+
 //QUIT
 			else if (action.equals("quit")){
 				System.out.println("You lose! HAHAHHAHAH!");
@@ -303,7 +305,7 @@ public class BattleBoats{
 				turns --;
 			}
 
-			
+
 		}
   	}
 }
