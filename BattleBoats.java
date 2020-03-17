@@ -1,3 +1,8 @@
+/* This class contains the main driver method and any helpers
+
+Written by osmun046 and leibo023
+*/
+
 import java.util.Scanner;
 
 public class BattleBoats{
@@ -222,10 +227,7 @@ public class BattleBoats{
 				else{
 					System.out.println("You have no more missles remaining");
 				}
-
-					
 			}
-
 
 
 //DRONE
@@ -293,7 +295,6 @@ public class BattleBoats{
         System.out.println("It took you " + turns + " turns to finally give up!");
         System.out.println("Here is the original board:");
         printBoard(originalBoard);
-        
         
         cont = false;
 			}

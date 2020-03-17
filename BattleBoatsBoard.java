@@ -363,11 +363,9 @@ public class BattleBoatsBoard {
 				System.out.println("Coordinate not in bounds");
 				return resultOfMissile;
 			}
-
-
 		}
 
-
+		
 		public int drone(String direction, int index) {  //Scans a row or column. Updates the user with the amount of boats in the row
 			int count = 0;
 
@@ -378,7 +376,6 @@ public class BattleBoatsBoard {
 					}
 				}
 			}
-
 
 			else if (direction.equals("column")){
 				for (int i = 0; i < this.board[0].length; i++){
