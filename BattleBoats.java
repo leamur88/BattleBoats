@@ -9,7 +9,7 @@ public class BattleBoats{
 	private static int totalHealth;
 
   public static void printBoard(String[][] originalBoard){
-    String boardResult = ""; //For loops to print the original board
+	String boardResult = ""; //For loops to print the original board
 						for (int i = 0; i < originalBoard.length; i++){
 							boardResult+= "\n";
 							for (int j = 0; j < originalBoard.length; j++){
@@ -56,15 +56,15 @@ public class BattleBoats{
 		UserBoard userBoard =  new UserBoard(gamemode);
 		
 		if (gamemode.equals("standard")){
-      		totalHealth = 17;
-      		dronesRemaining = 1;
-      		missilesRemaining = 1;
-    }
-    
+			totalHealth = 17;
+			dronesRemaining = 1;
+			missilesRemaining = 1;
+	}
+	
 		else{
-      		totalHealth = 34;
-      		dronesRemaining = 2;
-      		missilesRemaining = 2;
+			totalHealth = 34;
+			dronesRemaining = 2;
+			missilesRemaining = 2;
 		}
 		
 		boolean cont = true;
@@ -81,6 +81,7 @@ public class BattleBoats{
 			System.out.println("'fire', 'missile', 'drone', or 'quit'");
 
 			String action = s.nextLine();
+			System.out.println(action);
 
 			if (action.equals("fire")){
 				
@@ -112,8 +113,8 @@ public class BattleBoats{
 					totalHealth --;
 					if (totalHealth < 1){
 						System.out.println("Wow you're so cool you beat the game!!! You managed this amazing feat in "+ turns+ " turns.");
-            System.out.println("Here is the revealed board:");
-            printBoard(originalBoard);
+			System.out.println("Here is the revealed board:");
+			printBoard(originalBoard);
 						// String boardResult = ""; //For loops to print the original board
 						// for (int i = 0; i < masterBoard.board.length; i++){
 						// 	boardResult+= "\n";
@@ -212,8 +213,8 @@ public class BattleBoats{
 							// 		boardResult += originalBoard[i][j];
 							// 	}
 							// }
-              // System.out.println(boardResult);
-              printBoard(originalBoard);
+			  // System.out.println(boardResult);
+			  printBoard(originalBoard);
 							cont = false;
 						}
 
@@ -230,80 +231,79 @@ public class BattleBoats{
 
 //DRONE
 			else if (action.equals("drone")){
-        
-        String direction = "";
-        int index = -1;
-        boolean droneCont = true;
-        
-        while (droneCont = true){
-          if (dronesRemaining > 0){
-            
-            boolean validDirection = false;
-            while (validDirection == false){
-              System.out.println("Would you like to scan a 'row' or 'column'?");
-              direction = s.nextLine();
-              if (direction.equals("row") || direction.equals("column")){
-                validDirection = true;
-              }
-              else{
-                System.out.println("Enter 'row' or 'column'.");
-              }
-            }
-            
-            boolean validIndex = false;
-            while (validIndex == false){
-              System.out.println("What " + direction + " would you like to scan? (between 0 and " + (userBoard.getLength() - 1) + ")");
-              index = s.nextInt();
-              if (index > 0 && index <= userBoard.getLength()){
-                validIndex = true;
-              }
-              else {
-                System.out.println("Must be between 1 and " + (userBoard.getLength() - 1) +".");
-              }
-            }
-              
-              if (direction.equals("row")){
-                System.out.println(masterBoard.drone("row", index) + " ships were found in this " + direction + " (hit or unhit).");
-                droneCont = false;
-                dronesRemaining --;
-                break;
-              }
-  
-              else if (direction.equals("column")){
-                System.out.println(masterBoard.drone("column", index) + " ships were found in this " + direction + " (hit or unhit).");
-                droneCont = false;
-                dronesRemaining --;
-                break;
-              }
-          }
+				String direction = "";
+				int index = -1;
+				boolean droneCont = true;
+				
+				while (droneCont = true){
+				  	if (dronesRemaining > 0){
+					
+						boolean validDirection = false;
+						while (validDirection == false){
+							System.out.println("Would you like to scan a 'row' or 'column'?");
+							direction = s.nextLine();
+							if (direction.equals("row") || direction.equals("column")){
+							validDirection = true;
+						 	}
+							else{
+								System.out.println("Enter 'row' or 'column'.");
+						  	}
+						}
+						
+						boolean validIndex = false;
+						while (validIndex == false){
+							System.out.println("What " + direction + " would you like to scan? (between 0 and " + (userBoard.getLength() - 1) + ")");
+							index = s.nextInt();
+							if (index > 0 && index <= userBoard.getLength()){
+								validIndex = true;
+						  	}
+							else {
+							System.out.println("Must be between 1 and " + (userBoard.getLength() - 1) +".");
+						  	}
+						}
+						  
+							if (direction.equals("row")){
+								System.out.println(masterBoard.drone("row", index) + " ships were found in this " + direction + " (hit or unhit).");
+								droneCont = false;
+								dronesRemaining --;
+								break;
+						  	}
+			  
+						  	else if (direction.equals("column")){
+								System.out.println(masterBoard.drone("column", index) + " ships were found in this " + direction + " (hit or unhit).");
+								droneCont = false;
+								dronesRemaining --;
+								break;
+						  	}
+					  	}
 
-          else{
-            System.out.println("You have no more drones remaining.");
-            droneCont = false;
-            turns--;
-            break;
-          }
-        }
-      }
-      
-      
+				  	else{
+						System.out.println("You have no more drones remaining.");
+						droneCont = false;
+						turns--;
+						break;
+					}
+				}
+		  	}
+	  
+	  
 //QUIT
 			else if (action.equals("quit")){
-        System.out.println("You lose! HAHAHHAHAH!");
-        System.out.println("It took you " + turns + " turns to finally give up!");
-        System.out.println("Here is the original board:");
-        printBoard(originalBoard);
-        
-        
-        cont = false;
+				System.out.println("You lose! HAHAHHAHAH!");
+				System.out.println("It took you " + turns + " turns to finally give up!");
+				System.out.println("Here is the original board:");
+				printBoard(originalBoard);
+				cont = false;
 			}
 
 
 //INVALID INPUT
 			else{
 				System.out.println("Please select a vaild input.");
-        turns --;
+				turns --;
 			}
+
+			
 		}
-  }
+  	}
 }
