@@ -42,6 +42,8 @@ public class BattleBoats{
 		
 		boolean cont = true;
 
+
+//MAIN WHILE
 		while (cont == true){
 			System.out.println(userBoard);
 			turns ++;
@@ -90,11 +92,11 @@ public class BattleBoats{
 				else if ((result == -1) || (result ==  -2)){
 					turns ++;
 					System.out.println("Penalty! This spot has already been hit, one extra turn added.");
-					
 				}
-
 			}
 
+
+//MISSLE
 			else if (action.equals("missile")){
 				boolean inBounds = false;
 				int row = -1;
@@ -114,6 +116,9 @@ public class BattleBoats{
 				}
 			}
 
+
+
+//DRONE
 			else if (action.equals("drone")){
         
         String direction = "";
@@ -169,16 +174,26 @@ public class BattleBoats{
             break;
           }
         }
-			}
-
+      }
+      
+      
+//QUIT
 			else if (action.equals("quit")){
+        System.out.println("You lose! HAHAHHAHAH!");
+        System.out.println("It took you " + turns + " turns to finally give up!");
+        System.out.println("Here is the original board:");
+
+        //ADD PRINTING
+        
         cont = false;
 			}
 
+
+//INVALID INPUT
 			else{
 				System.out.println("Please select a vaild input.");
         turns --;
 			}
 		}
-	}
+  }
 }
