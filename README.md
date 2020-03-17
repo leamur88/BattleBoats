@@ -16,6 +16,7 @@ Ethan
 -drone method in BattleBoatsBoard
 -drone implementation in BattleBoats main
 -quit in BattleBoats main
+-formatting and polishing
 
 Together
 -placeBoats method in BattleBoatsBoard
@@ -49,3 +50,4 @@ STILL TO DO FOR ETHAN
 -update known bugs
 -fix known bugs
 -       DONE close scanner
+-       DONE show drones and missiles remaining each turn

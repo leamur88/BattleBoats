@@ -25,32 +25,33 @@ public static void printBoard(String[][] originalBoard){  //Helper method to pri
 }
 public static void main(String[] args){
 	Scanner s = new Scanner(System.in);
-	System.out.print("\n\n\n WELCOME TO BATTLE BOATS! \n************************\n \n"
-						+ "BattleBoats is a board game where you will attempt to sink all \n"
-						+ "of your opponents ships. You must use your smarts to strategically uncover \n"
-						+ "and sink all of your opponents vessels in the fewest moves possible. \n"
-						+ "\n"
-						+ "There are two difficulties, standard and expert. Expert has a \n"
-						+ "larger board and twice as many ships to sink! \n"
-						+ "\n"
-						+ "You have a number of tools at you disposal including the basic fire \n"
-						+ "function, the drone, ad missiles! (They go 'BOOM!') An explanation of \n"
-						+ "these functions are given below... \n"
-						+ "\n"
-						+ ">>>FIRE: Basic attack function. Will hit one square and tell you if there \n"
-						+ "was a boat there or not. You can use fire an unlimited number if times. \n"
-						+ ">>>MISSILE: Missile hit a 3 by 3 square centered at the point you enter. \n"
-						+ "Like fire, it will show what boats were found in that square. In standard \n"
-						+ "mode you have only one missile available, in expert mode you have two. \n"
-						+ ">>>DRONE: Drone allows you to scan one row or column of the board. When the \n"
-						+ "returns, it will tell you how many ships it found in that row or column. \n"
-						+ "The drone will count both sunk and unsunk ships. \n"
-						+ "\n"
-						+"If you want to quit the game before it is done enter 'quit'.\n \n"
-						+ "Ready to play? Here we go! \n \n");
+	System.out.print("\n\n\nWELCOME TO BATTLE BOATS! \n************************\n \n"
+						+ "| BattleBoats is a board game where you will attempt to sink all \n"
+						+ "| of your opponents ships. You must use your smarts to strategically uncover \n"
+						+ "| and sink all of your opponents vessels in the fewest moves possible. \n"
+						+ "| \n"
+						+ "| There are two difficulties, standard and expert. Expert has a \n"
+						+ "| larger board and twice as many ships to sink! \n"
+						+ "| \n"
+						+ "| You have a number of tools at you disposal including the basic fire \n"
+						+ "| function, the drone, ad missiles! (They go 'BOOM!') An explanation of \n"
+						+ "| these functions are given below... \n"
+						+ "| \n"
+						+ "| >>>FIRE: Basic attack function. Will hit one square and tell you if there \n"
+						+ "| was a boat there or not. You can use fire an unlimited number if times. \n"
+						+ "| >>>MISSILE: Missile hit a 3 by 3 square centered at the point you enter. \n"
+						+ "| Like fire, it will show what boats were found in that square. In standard \n"
+						+ "| mode you have only one missile available, in expert mode you have two. \n"
+						+ "| >>>DRONE: Drone allows you to scan one row or column of the board. When the \n"
+						+ "| returns, it will tell you how many ships it found in that row or column. \n"
+						+ "| The drone will count both sunk and unsunk ships. \n"
+						+ "| \n"
+						+ "| If you want to quit the game before it is done enter 'quit'.\n"
+						+ "| \n"
+						+ "| Ready to play? Here we go! \n \n");
 
 	System.out.println("Choose your difficulty: 'standard' or 'expert'");
-	String gamemode = s.nextLine().trim().toLowerCase();
+	String gamemode = s.next().trim().toLowerCase();
 
 	while (validInput == false){  //Will loop until the gamemode is valid
 
@@ -59,7 +60,7 @@ public static void main(String[] args){
 		}
 		else{
 			System.out.println("Choose either standard or expert.");
-			gamemode = s.nextLine().trim().toLowerCase();  //Will strip whitespace and convert to all lowercase. Used on all string inputs.
+			gamemode = s.next().trim().toLowerCase();  //Will strip whitespace and convert to all lowercase. Used on all string inputs.
 		}
 	}
 
@@ -101,15 +102,18 @@ public static void main(String[] args){
 
 //MAIN WHILE LOOP CONTINUES WHILE THE GAME RUNS
 	while (cont == true){  //Main continue boolean
+		System.out.println("\n***********************************************************\n");
+		System.out.println(">>>TURN " + (turns + 1) + "<<<");
+		System.out.println("Missiles left: " + missilesRemaining);
+		System.out.println("Drones left: " + dronesRemaining);
 		System.out.println(userBoard);  
 		System.out.println();
 		turns ++;
 
-		System.out.println("Turn: " + turns + "\n");
 		System.out.println("Enter a action...");
 		System.out.println("'fire', 'missile', 'drone', or 'quit'");
 
-		String action = s.nextLine().trim().toLowerCase();
+		String action = s.next().trim().toLowerCase();
 
 		if (action.equals("fire")){
 
@@ -126,17 +130,17 @@ public static void main(String[] args){
 					inBounds  = true;
 				}
 				else{
-					System.out.println("Point outside of bounds, try again");
+					System.out.println("Point out of bounds, try again.");
 				}
 			}
 
 			int result = masterBoard.fire(row,col);
 			if (result == 0){
-				System.out.println("Miss!");
+				System.out.println("\nMISS!");
 				userBoard.updateCoordinate(row,col,0);
 			}
 			else if (result == 1){
-				System.out.println("Hit!");
+				System.out.println("\nHIT!");
 				userBoard.updateCoordinate(row,col,1);
 				totalHealth --;
 				if (totalHealth < 1){
@@ -223,7 +227,7 @@ public static void main(String[] args){
 
 				totalHealth -= damageDone;
 				missilesRemaining--;
-				System.out.println("You now have " + missilesRemaining + " missiles remaining.");
+				System.out.println("\nYou now have " + missilesRemaining + " missiles remaining.");
 				if (totalHealth < 1){
 						System.out.println("Wow you are SO cool! You sunk all the ships! You managed this amazing feat in "+ turns+ " turns.");
 						System.out.println("Here is the revealed board:");
@@ -248,7 +252,7 @@ public static void main(String[] args){
 					boolean validDirection = false;
 					while (validDirection == false){
 						System.out.println("Would you like to scan a 'row' or 'column'?");
-						direction = s.nextLine().trim().toLowerCase();
+						direction = s.next().trim().toLowerCase();
 						if (direction.equals("row") || direction.equals("column")){
 						validDirection = true;
 						}
@@ -270,18 +274,18 @@ public static void main(String[] args){
 					}
 
 						if (direction.equals("row")){
-							System.out.println(masterBoard.drone("row", index) + " ships were found in this " + direction + " (hit or unhit).");
+							System.out.println("\n" + masterBoard.drone("row", index) + " ships were found in this " + direction + " (hit or unhit).");
 							droneCont = false;
 							dronesRemaining --;
-							System.out.println("You now have " + dronesRemaining + " missiles remaining.");
+							System.out.println("\nYou now have " + dronesRemaining + " drones remaining.");
 							break;
 						}
 
 						else if (direction.equals("column")){
-							System.out.println(masterBoard.drone("column", index) + " ships were found in this " + direction + " (hit or unhit).");
+							System.out.println("\n" + masterBoard.drone("column", index) + " ships were found in this " + direction + " (hit or unhit).");
 							droneCont = false;
 							dronesRemaining --;
-							System.out.println("You now have " + dronesRemaining + " missiles remaining.");
+							System.out.println("\nYou now have " + dronesRemaining + " drones remaining.");
 							break;
 						}
 					}
@@ -307,7 +311,7 @@ public static void main(String[] args){
 
 //INVALID INPUT
 		else{
-			System.out.println("Please select a vaild input.");
+			System.out.println("Please enter a vaild input.");
 			turns --;
 		}
 		}
