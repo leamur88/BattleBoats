@@ -20,6 +20,7 @@ Ethan
 
 Together
 -placeBoats method in BattleBoatsBoard
+-Time Complexity
 
 
 ADDITIONAL FEATURES
@@ -27,7 +28,7 @@ Sarcasm. Nothing else really.
 
 
 HOW TO RUN
-Compile and run BattleBoats.java. 
+Compile and run BattleBoats.java.
 Dependencies are BattleBoatsBoard.java, Boats.java, and UserBoard.java.
 
 
