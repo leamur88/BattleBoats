@@ -5,14 +5,17 @@ Written by osmun046 and leibo023
 
 public class UserBoard{
 	public String[][] userBoard;
+	public String gamemode;
 	
 	public UserBoard(String gamemode){  //Constructor for the userBoard object. Creates userBoard size depending on gamemode difficulty
 		if (gamemode.equals("standard")){
 			this.userBoard = new String[8][8];
+			this.gamemode = gamemode;
 		}
 	
 		else if (gamemode.equals("expert")){
-            this.userBoard = new String[12][12];
+			this.userBoard = new String[12][12];
+			this.gamemode = gamemode;
         }
             
         for (int i = 0; i < userBoard[0].length; i++){
@@ -45,10 +48,25 @@ public class UserBoard{
 	}
 
 	public String toString(){  //toString method for the userBoard
-		String boardResult = "";
-	
+		String boardResult = "\n";
+		
+		if (gamemode.equals("standard")){
+			boardResult += "    0    1    2    3    4    5    6    7";
+		}
+
+		else if (gamemode.equals("expert")){
+			boardResult += "    0    1    2    3    4    5    6    7    8    9    10   11";
+		}
+
 		for (int i = 0; i < userBoard.length; i++){
-			boardResult+= "\n";
+			if (i < 10){
+				boardResult+= "\n" + i +"  ";
+			}
+
+			else if (i >= 10){
+				boardResult+= "\n" + i +" ";
+			}
+			
 			for (int j = 0; j < userBoard.length; j++){
 				boardResult += userBoard[i][j];
 			}
