@@ -328,7 +328,7 @@ public static void main(String[] args){
 			System.out.println("> Here is the original board: \n");
 			printBoard(originalBoard);
 			System.out.println();
-			System.out.println("Game made bu Jonathan Leibovich and Ethan Osmundson");
+			
 			cont = false;
 		}
 
@@ -338,6 +338,7 @@ public static void main(String[] args){
 			turns --;
 		}
 		}
+		System.out.println("Game made by Jonathan Leibovich and Ethan Osmundson");
 		s.close();
 	}
 }
