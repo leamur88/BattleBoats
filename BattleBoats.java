@@ -287,11 +287,11 @@ public static void main(String[] args){
 					while (validIndex == false){
 						System.out.println("> What " + direction + " would you like to scan? (between 0 and " + (userBoard.getLength() - 1) + ")");
 						index = s.nextInt();
-						if (index > 0 && index <= userBoard.getLength()){
+						if (index >= 0 && index <= userBoard.getLength()-1){
 							validIndex = true;
 						}
 						else {
-						System.out.println("> Must be between 1 and " + (userBoard.getLength() - 1) +".");
+						System.out.println("> Must be between 0 and " + (userBoard.getLength() - 1) +".");
 						}
 					}
 
