@@ -1,7 +1,7 @@
 # BattleBoats
-Written by leibo023 and osmun046
+### Written by leibo023 and osmun046
 
-WHAT EACH PARTNER DID
+#### WHAT EACH PARTNER DID
 Jonathan Leibovich
 -missileFire method in BattleBoatsBoard
 -missile method in BattleBoatsBoard
@@ -23,14 +23,14 @@ Together
 -Time complexity
 
 
-ADDITIONAL FEATURES
+#### ADDITIONAL FEATURES
 Sarcasm and insults. Nothing else really.
 
 
-HOW TO RUN
+#### HOW TO RUN
 Compile all files and run BattleBoats.java. 
 Dependencies are BattleBoatsBoard.java, Boats.java, and UserBoard.java.
 
 
-KNOWN BUGS/DEFECTS
+#### KNOWN BUGS/DEFECTS
 -If an integer input is expected and a float, string or character is given instead the program crashes
